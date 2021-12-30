@@ -1,0 +1,134 @@
+Info: Starting: Create block symbol file (.bsf)
+Info: qsys-generate C:\Users\Pablo\Documents\GitHub\USB\niosii_USB.qsys --block-symbol-file --output-directory=C:\Users\Pablo\Documents\GitHub\USB\niosii_USB --family="Cyclone IV E" --part=EP4CE115F29C7
+Progress: Loading USB/niosii_USB.qsys
+Progress: Reading input file
+Progress: Adding audio_pll [altera_up_avalon_audio_pll 17.1]
+Progress: Parameterizing module audio_pll
+Progress: Adding clk_50 [clock_source 17.1]
+Progress: Parameterizing module clk_50
+Progress: Adding clk_50_2 [clock_source 17.1]
+Progress: Parameterizing module clk_50_2
+Progress: Adding clk_50_3 [clock_source 17.1]
+Progress: Parameterizing module clk_50_3
+Progress: Adding cpu [altera_nios2_gen2 17.1]
+Progress: Parameterizing module cpu
+Progress: Adding jtag_uart [altera_avalon_jtag_uart 17.1]
+Progress: Parameterizing module jtag_uart
+Progress: Adding nios_custom_instr_floating_point_2_0 [altera_nios_custom_instr_floating_point_2 17.1]
+Progress: Parameterizing module nios_custom_instr_floating_point_2_0
+Progress: Adding onchip_memory [altera_avalon_onchip_memory2 17.1]
+Progress: Parameterizing module onchip_memory
+Progress: Adding performance_counter [altera_avalon_performance_counter 17.1]
+Progress: Parameterizing module performance_counter
+Progress: Adding reset_bridge [altera_reset_bridge 17.1]
+Progress: Parameterizing module reset_bridge
+Progress: Adding sdram [altera_avalon_new_sdram_controller 17.1]
+Progress: Parameterizing module sdram
+Progress: Adding sdram_clk [altera_clock_bridge 17.1]
+Progress: Parameterizing module sdram_clk
+Progress: Adding sys_clk [altera_clock_bridge 17.1]
+Progress: Parameterizing module sys_clk
+Progress: Adding sys_sdram_pll [altera_up_avalon_sys_sdram_pll 17.1]
+Progress: Parameterizing module sys_sdram_pll
+Progress: Adding sysid [altera_avalon_sysid_qsys 17.1]
+Progress: Parameterizing module sysid
+Progress: Adding tanh_module_0 [tanh_module 1.2]
+Warning: tanh_module_0: Component type tanh_module is not in the library
+Progress: Parameterizing module tanh_module_0
+Progress: Adding timer_0 [altera_avalon_timer 17.1]
+Progress: Parameterizing module timer_0
+Progress: Adding video_pll [altera_up_avalon_video_pll 17.1]
+Progress: Parameterizing module video_pll
+Progress: Building connections
+Progress: Parameterizing connections
+Progress: Validating
+Progress: Done reading input file
+Info: niosii_USB.jtag_uart: JTAG UART IP input clock need to be at least double (2x) the operating frequency of JTAG TCK on board
+Info: niosii_USB.sdram: SDRAM Controller will only be supported in Quartus Prime Standard Edition in the future release.
+Info: niosii_USB.sys_sdram_pll: Refclk Freq: 50.0
+Info: niosii_USB.sysid: System ID is not assigned automatically. Edit the System ID parameter to provide a unique ID
+Info: niosii_USB.sysid: Time stamp will be automatically updated when this component is generated.
+Error: niosii_USB.tanh_module_0: Component tanh_module 1.2 not found or could not be instantiated
+Info: qsys-generate succeeded.
+Info: Finished: Create block symbol file (.bsf)
+Info: 
+Info: Starting: Create HDL design files for synthesis
+Info: qsys-generate C:\Users\Pablo\Documents\GitHub\USB\niosii_USB.qsys --synthesis=VERILOG --output-directory=C:\Users\Pablo\Documents\GitHub\USB\niosii_USB\synthesis --family="Cyclone IV E" --part=EP4CE115F29C7
+Progress: Loading USB/niosii_USB.qsys
+Progress: Reading input file
+Progress: Adding audio_pll [altera_up_avalon_audio_pll 17.1]
+Progress: Parameterizing module audio_pll
+Progress: Adding clk_50 [clock_source 17.1]
+Progress: Parameterizing module clk_50
+Progress: Adding clk_50_2 [clock_source 17.1]
+Progress: Parameterizing module clk_50_2
+Progress: Adding clk_50_3 [clock_source 17.1]
+Progress: Parameterizing module clk_50_3
+Progress: Adding cpu [altera_nios2_gen2 17.1]
+Progress: Parameterizing module cpu
+Progress: Adding jtag_uart [altera_avalon_jtag_uart 17.1]
+Progress: Parameterizing module jtag_uart
+Progress: Adding nios_custom_instr_floating_point_2_0 [altera_nios_custom_instr_floating_point_2 17.1]
+Progress: Parameterizing module nios_custom_instr_floating_point_2_0
+Progress: Adding onchip_memory [altera_avalon_onchip_memory2 17.1]
+Progress: Parameterizing module onchip_memory
+Progress: Adding performance_counter [altera_avalon_performance_counter 17.1]
+Progress: Parameterizing module performance_counter
+Progress: Adding reset_bridge [altera_reset_bridge 17.1]
+Progress: Parameterizing module reset_bridge
+Progress: Adding sdram [altera_avalon_new_sdram_controller 17.1]
+Progress: Parameterizing module sdram
+Progress: Adding sdram_clk [altera_clock_bridge 17.1]
+Progress: Parameterizing module sdram_clk
+Progress: Adding sys_clk [altera_clock_bridge 17.1]
+Progress: Parameterizing module sys_clk
+Progress: Adding sys_sdram_pll [altera_up_avalon_sys_sdram_pll 17.1]
+Progress: Parameterizing module sys_sdram_pll
+Progress: Adding sysid [altera_avalon_sysid_qsys 17.1]
+Progress: Parameterizing module sysid
+Progress: Adding tanh_module_0 [tanh_module 1.2]
+Warning: tanh_module_0: Component type tanh_module is not in the library
+Progress: Parameterizing module tanh_module_0
+Progress: Adding timer_0 [altera_avalon_timer 17.1]
+Progress: Parameterizing module timer_0
+Progress: Adding video_pll [altera_up_avalon_video_pll 17.1]
+Progress: Parameterizing module video_pll
+Progress: Building connections
+Progress: Parameterizing connections
+Progress: Validating
+Progress: Done reading input file
+Info: niosii_USB.jtag_uart: JTAG UART IP input clock need to be at least double (2x) the operating frequency of JTAG TCK on board
+Info: niosii_USB.sdram: SDRAM Controller will only be supported in Quartus Prime Standard Edition in the future release.
+Info: niosii_USB.sys_sdram_pll: Refclk Freq: 50.0
+Info: niosii_USB.sysid: System ID is not assigned automatically. Edit the System ID parameter to provide a unique ID
+Info: niosii_USB.sysid: Time stamp will be automatically updated when this component is generated.
+Error: niosii_USB.tanh_module_0: Component tanh_module 1.2 not found or could not be instantiated
+Info: niosii_USB: Generating niosii_USB "niosii_USB" for QUARTUS_SYNTH
+Warning: niosii_USB: "No matching role found for cpu_custom_instruction_master_multi_xconnect:ci_slave:ci_slave_ipending (ipending)"
+Warning: niosii_USB: "No matching role found for cpu_custom_instruction_master_multi_xconnect:ci_slave:ci_slave_estatus (estatus)"
+Info: audio_pll: "niosii_USB" instantiated altera_up_avalon_audio_pll "audio_pll"
+Info: cpu: "niosii_USB" instantiated altera_nios2_gen2 "cpu"
+Info: jtag_uart: Starting RTL generation for module 'niosii_USB_jtag_uart'
+Info: jtag_uart:   Generation command is [exec C:/intelfpga_lite/17.1/quartus/bin64/perl/bin/perl.exe -I C:/intelfpga_lite/17.1/quartus/bin64/perl/lib -I C:/intelfpga_lite/17.1/quartus/sopc_builder/bin/europa -I C:/intelfpga_lite/17.1/quartus/sopc_builder/bin/perl_lib -I C:/intelfpga_lite/17.1/quartus/sopc_builder/bin -I C:/intelfpga_lite/17.1/quartus/../ip/altera/sopc_builder_ip/common -I C:/intelfpga_lite/17.1/quartus/../ip/altera/sopc_builder_ip/altera_avalon_jtag_uart -- C:/intelfpga_lite/17.1/quartus/../ip/altera/sopc_builder_ip/altera_avalon_jtag_uart/generate_rtl.pl --name=niosii_USB_jtag_uart --dir=C:/Users/Pablo/AppData/Local/Temp/alt8991_1468006991684195881.dir/0002_jtag_uart_gen/ --quartus_dir=C:/intelfpga_lite/17.1/quartus --verilog --config=C:/Users/Pablo/AppData/Local/Temp/alt8991_1468006991684195881.dir/0002_jtag_uart_gen//niosii_USB_jtag_uart_component_configuration.pl  --do_build_sim=0  ]
+Info: jtag_uart: Done RTL generation for module 'niosii_USB_jtag_uart'
+Info: jtag_uart: "niosii_USB" instantiated altera_avalon_jtag_uart "jtag_uart"
+Info: nios_custom_instr_floating_point_2_0: "niosii_USB" instantiated altera_nios_custom_instr_floating_point_2 "nios_custom_instr_floating_point_2_0"
+Info: onchip_memory: Starting RTL generation for module 'niosii_USB_onchip_memory'
+Info: onchip_memory:   Generation command is [exec C:/intelfpga_lite/17.1/quartus/bin64/perl/bin/perl.exe -I C:/intelfpga_lite/17.1/quartus/bin64/perl/lib -I C:/intelfpga_lite/17.1/quartus/sopc_builder/bin/europa -I C:/intelfpga_lite/17.1/quartus/sopc_builder/bin/perl_lib -I C:/intelfpga_lite/17.1/quartus/sopc_builder/bin -I C:/intelfpga_lite/17.1/quartus/../ip/altera/sopc_builder_ip/common -I C:/intelfpga_lite/17.1/quartus/../ip/altera/sopc_builder_ip/altera_avalon_onchip_memory2 -- C:/intelfpga_lite/17.1/quartus/../ip/altera/sopc_builder_ip/altera_avalon_onchip_memory2/generate_rtl.pl --name=niosii_USB_onchip_memory --dir=C:/Users/Pablo/AppData/Local/Temp/alt8991_1468006991684195881.dir/0003_onchip_memory_gen/ --quartus_dir=C:/intelfpga_lite/17.1/quartus --verilog --config=C:/Users/Pablo/AppData/Local/Temp/alt8991_1468006991684195881.dir/0003_onchip_memory_gen//niosii_USB_onchip_memory_component_configuration.pl  --do_build_sim=0  ]
+Info: onchip_memory: Done RTL generation for module 'niosii_USB_onchip_memory'
+Info: onchip_memory: "niosii_USB" instantiated altera_avalon_onchip_memory2 "onchip_memory"
+Info: performance_counter: Starting RTL generation for module 'niosii_USB_performance_counter'
+Info: performance_counter:   Generation command is [exec C:/intelfpga_lite/17.1/quartus/bin64/perl/bin/perl.exe -I C:/intelfpga_lite/17.1/quartus/bin64/perl/lib -I C:/intelfpga_lite/17.1/quartus/sopc_builder/bin/europa -I C:/intelfpga_lite/17.1/quartus/sopc_builder/bin/perl_lib -I C:/intelfpga_lite/17.1/quartus/sopc_builder/bin -I C:/intelfpga_lite/17.1/quartus/../ip/altera/sopc_builder_ip/common -I C:/intelfpga_lite/17.1/quartus/../ip/altera/sopc_builder_ip/altera_avalon_performance_counter -- C:/intelfpga_lite/17.1/quartus/../ip/altera/sopc_builder_ip/altera_avalon_performance_counter/generate_rtl.pl --name=niosii_USB_performance_counter --dir=C:/Users/Pablo/AppData/Local/Temp/alt8991_1468006991684195881.dir/0004_performance_counter_gen/ --quartus_dir=C:/intelfpga_lite/17.1/quartus --verilog --config=C:/Users/Pablo/AppData/Local/Temp/alt8991_1468006991684195881.dir/0004_performance_counter_gen//niosii_USB_performance_counter_component_configuration.pl  --do_build_sim=0  ]
+Info: performance_counter: Done RTL generation for module 'niosii_USB_performance_counter'
+Info: performance_counter: "niosii_USB" instantiated altera_avalon_performance_counter "performance_counter"
+Info: sdram: Starting RTL generation for module 'niosii_USB_sdram'
+Info: sdram:   Generation command is [exec C:/intelfpga_lite/17.1/quartus/bin64/perl/bin/perl.exe -I C:/intelfpga_lite/17.1/quartus/bin64/perl/lib -I C:/intelfpga_lite/17.1/quartus/sopc_builder/bin/europa -I C:/intelfpga_lite/17.1/quartus/sopc_builder/bin/perl_lib -I C:/intelfpga_lite/17.1/quartus/sopc_builder/bin -I C:/intelfpga_lite/17.1/quartus/../ip/altera/sopc_builder_ip/common -I C:/intelfpga_lite/17.1/quartus/../ip/altera/sopc_builder_ip/altera_avalon_new_sdram_controller -- C:/intelfpga_lite/17.1/quartus/../ip/altera/sopc_builder_ip/altera_avalon_new_sdram_controller/generate_rtl.pl --name=niosii_USB_sdram --dir=C:/Users/Pablo/AppData/Local/Temp/alt8991_1468006991684195881.dir/0005_sdram_gen/ --quartus_dir=C:/intelfpga_lite/17.1/quartus --verilog --config=C:/Users/Pablo/AppData/Local/Temp/alt8991_1468006991684195881.dir/0005_sdram_gen//niosii_USB_sdram_component_configuration.pl  --do_build_sim=0  ]
+Info: sdram: Done RTL generation for module 'niosii_USB_sdram'
+Info: sdram: "niosii_USB" instantiated altera_avalon_new_sdram_controller "sdram"
+Info: sys_sdram_pll: "niosii_USB" instantiated altera_up_avalon_sys_sdram_pll "sys_sdram_pll"
+Info: sysid: "niosii_USB" instantiated altera_avalon_sysid_qsys "sysid"
+Error: tanh_module_0: missing_module does not support generation.
+Error: Generation stopped, 20 or more modules remaining
+Info: niosii_USB: Done "niosii_USB" with 25 modules, 12 files
+Error: qsys-generate failed with exit code 1: 3 Errors, 3 Warnings
+Info: Finished: Create HDL design files for synthesis
