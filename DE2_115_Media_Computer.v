@@ -25,6 +25,9 @@ module DE2_115_Media_Computer (
 	
 	// SD Card
 	 SD_WP_N,
+	 
+	//USB
+	OTG_INT,
 
 /*****************************************************************************/
 	// Bidireccionales
@@ -59,6 +62,9 @@ module DE2_115_Media_Computer (
 	// SD Card
 	SD_CMD,
 	SD_DAT,
+	
+	//USB
+	OTG_DATA,
 	
 /*****************************************************************************/
 	// Salidas
@@ -138,7 +144,14 @@ module DE2_115_Media_Computer (
     FLASH_nCE,
 	 
 	 // SD Card
-	 SD_CLK
+	 SD_CLK,
+	 
+	 //USB
+	 OTG_CS_N,
+    OTG_RD_N,
+	 OTG_WR_N,
+	 OTG_RST_N,
+    OTG_ADDR
 	
 );
 
@@ -158,6 +171,7 @@ input				TD_CLK27;
 input		[ 3: 0]	KEY;
 input		[17: 0]	SW;
 
+
 //  Comunicacion
 input				UART_RXD;
 
@@ -172,6 +186,10 @@ input				DATA0;
 
 // SD Card
 input 			SD_WP_N;
+
+// USB
+input						OTG_INT;
+
 
 /*****************************************************************************/
 // Bidireccionales
@@ -206,6 +224,9 @@ inout		[ 7: 0]	LCD_DATA;
 //  SD Card
 inout 				SD_CMD;
 inout		[ 3: 0]	SD_DAT;
+
+//USB
+inout			[15: 0]	OTG_DATA;
 
 /*****************************************************************************/
 // Salidas
@@ -287,6 +308,13 @@ output			    FLASH_nCE;
 //  SD Card
 output				 SD_CLK;
 
+//USB
+output reg				OTG_CS_N;
+output reg				OTG_RD_N;
+output reg				OTG_WR_N;
+output reg 				OTG_RST_N;
+output reg 	[1:0] 	OTG_ADDR;
+
 	
 /*****************************************************************************
  *                 Internal Wires and Registers Declarations                 *
@@ -362,6 +390,10 @@ assign 	GPIO[35]		= 1'bZ;
 	 
 	 
     niosii_USB u0 (
+		  .altera_up_sd_card_avalon_interface_0_conduit_end_b_SD_cmd   (SD_CMD),   // altera_up_sd_card_avalon_interface_0_conduit_end.b_SD_cmd
+        .altera_up_sd_card_avalon_interface_0_conduit_end_b_SD_dat   (SD_DAT[0]),   //                                                 .b_SD_dat
+        .altera_up_sd_card_avalon_interface_0_conduit_end_b_SD_dat3  (SD_DAT[3]),  //                                                 .b_SD_dat3
+        .altera_up_sd_card_avalon_interface_0_conduit_end_o_SD_clock (SD_CLK), //                                                 .o_SD_clock
         .clk_50_2_in_clk                           (CLOCK2_50),                           //                       clk_50_2_in.clk
         .clk_50_3_in_clk                           (CLOCK3_50),                           //                       clk_50_3_in.clk
         .clk_50_in_clk                             (CLOCK_50),                             //                         clk_50_in.clk
@@ -377,7 +409,15 @@ assign 	GPIO[35]		= 1'bZ;
         .sdram_wire_ras_n                          (DRAM_RAS_N),                          //                                  .ras_n
         .sdram_wire_we_n                           (DRAM_WE_N),                           //                                  .we_n
 		  .sys_clk_out_clk                           (),                           //                       sys_clk_out.clk
-    );
+		  .usb_0_external_interface_INT1                               (1'b1),                               //                         usb_0_external_interface.INT1
+        .usb_0_external_interface_DATA                               (OTG_DATA),                               //                                                 .DATA
+        .usb_0_external_interface_RST_N                              (OTG_RST_N),                              //                                                 .RST_N
+        .usb_0_external_interface_ADDR                               (OTG_ADDR),                               //                                                 .ADDR
+        .usb_0_external_interface_CS_N                               (OTG_CS_N),                               //                                                 .CS_N
+        .usb_0_external_interface_RD_N                               (OTG_RD_N),                               //                                                 .RD_N
+        .usb_0_external_interface_WR_N                               (OTG_WR_N),                               //                                                 .WR_N
+        .usb_0_external_interface_INT0                               (OTG_INT)                                //                                                 .INT0
+  );
 
 
 

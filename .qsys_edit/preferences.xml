@@ -7,6 +7,8 @@
    <irq preferredWidth="34" />
   </columns>
  </systemtable>
- <library expandedCategories="Project,Library" />
- <window width="1487" height="980" x="0" y="0" />
+ <library
+   expandedCategories="Library/University Program/Generic IO,Library/Basic Functions/Simulation; Debug and Verification,Project,Project/System,Library/Basic Functions/Simulation; Debug and Verification/Debug and Performance,Library,Library/University Program,Library/Basic Functions" />
+ <window width="1680" height="1010" x="0" y="0" />
+ <hdlexample language="VERILOG" />
 </preferences>

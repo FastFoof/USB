@@ -100,6 +100,34 @@
 					"strict" : false
 				},
 				{
+					"name" : "SD_CLK",
+					"strict" : false
+				},
+				{
+					"name" : "OTG_CS_N",
+					"strict" : false
+				},
+				{
+					"name" : "OTG_RD_N",
+					"strict" : false
+				},
+				{
+					"name" : "OTG_WR_N",
+					"strict" : false
+				},
+				{
+					"name" : "OTG_RST_N",
+					"strict" : false
+				},
+				{
+					"name" : "OTG_ADDR[0]",
+					"strict" : false
+				},
+				{
+					"name" : "OTG_ADDR[1]",
+					"strict" : false
+				},
+				{
 					"name" : "DRAM_DQ[0]",
 					"strict" : false
 				},
@@ -228,7 +256,83 @@
 					"strict" : false
 				},
 				{
+					"name" : "SD_CMD",
+					"strict" : false
+				},
+				{
+					"name" : "SD_DAT[0]",
+					"strict" : false
+				},
+				{
+					"name" : "OTG_DATA[0]",
+					"strict" : false
+				},
+				{
+					"name" : "OTG_DATA[1]",
+					"strict" : false
+				},
+				{
+					"name" : "OTG_DATA[2]",
+					"strict" : false
+				},
+				{
+					"name" : "OTG_DATA[3]",
+					"strict" : false
+				},
+				{
+					"name" : "OTG_DATA[4]",
+					"strict" : false
+				},
+				{
+					"name" : "OTG_DATA[5]",
+					"strict" : false
+				},
+				{
+					"name" : "OTG_DATA[6]",
+					"strict" : false
+				},
+				{
+					"name" : "OTG_DATA[7]",
+					"strict" : false
+				},
+				{
+					"name" : "OTG_DATA[8]",
+					"strict" : false
+				},
+				{
+					"name" : "OTG_DATA[9]",
+					"strict" : false
+				},
+				{
+					"name" : "OTG_DATA[10]",
+					"strict" : false
+				},
+				{
+					"name" : "OTG_DATA[11]",
+					"strict" : false
+				},
+				{
+					"name" : "OTG_DATA[12]",
+					"strict" : false
+				},
+				{
+					"name" : "OTG_DATA[13]",
+					"strict" : false
+				},
+				{
+					"name" : "OTG_DATA[14]",
+					"strict" : false
+				},
+				{
+					"name" : "OTG_DATA[15]",
+					"strict" : false
+				},
+				{
 					"name" : "KEY[0]",
+					"strict" : false
+				},
+				{
+					"name" : "OTG_INT",
 					"strict" : false
 				},
 				{

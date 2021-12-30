@@ -4,21 +4,33 @@
 
 `timescale 1 ps / 1 ps
 module niosii_USB (
-		input  wire        clk_50_2_in_clk,               //           clk_50_2_in.clk
-		input  wire        clk_50_3_in_clk,               //           clk_50_3_in.clk
-		input  wire        clk_50_in_clk,                 //             clk_50_in.clk
-		input  wire        reset_bridge_in_reset_reset_n, // reset_bridge_in_reset.reset_n
-		output wire        sdram_clk_out_clk,             //         sdram_clk_out.clk
-		output wire [12:0] sdram_wire_addr,               //            sdram_wire.addr
-		output wire [1:0]  sdram_wire_ba,                 //                      .ba
-		output wire        sdram_wire_cas_n,              //                      .cas_n
-		output wire        sdram_wire_cke,                //                      .cke
-		output wire        sdram_wire_cs_n,               //                      .cs_n
-		inout  wire [31:0] sdram_wire_dq,                 //                      .dq
-		output wire [3:0]  sdram_wire_dqm,                //                      .dqm
-		output wire        sdram_wire_ras_n,              //                      .ras_n
-		output wire        sdram_wire_we_n,               //                      .we_n
-		output wire        sys_clk_out_clk                //           sys_clk_out.clk
+		inout  wire        altera_up_sd_card_avalon_interface_0_conduit_end_b_SD_cmd,   // altera_up_sd_card_avalon_interface_0_conduit_end.b_SD_cmd
+		inout  wire        altera_up_sd_card_avalon_interface_0_conduit_end_b_SD_dat,   //                                                 .b_SD_dat
+		inout  wire        altera_up_sd_card_avalon_interface_0_conduit_end_b_SD_dat3,  //                                                 .b_SD_dat3
+		output wire        altera_up_sd_card_avalon_interface_0_conduit_end_o_SD_clock, //                                                 .o_SD_clock
+		input  wire        clk_50_2_in_clk,                                             //                                      clk_50_2_in.clk
+		input  wire        clk_50_3_in_clk,                                             //                                      clk_50_3_in.clk
+		input  wire        clk_50_in_clk,                                               //                                        clk_50_in.clk
+		input  wire        reset_bridge_in_reset_reset_n,                               //                            reset_bridge_in_reset.reset_n
+		output wire        sdram_clk_out_clk,                                           //                                    sdram_clk_out.clk
+		output wire [12:0] sdram_wire_addr,                                             //                                       sdram_wire.addr
+		output wire [1:0]  sdram_wire_ba,                                               //                                                 .ba
+		output wire        sdram_wire_cas_n,                                            //                                                 .cas_n
+		output wire        sdram_wire_cke,                                              //                                                 .cke
+		output wire        sdram_wire_cs_n,                                             //                                                 .cs_n
+		inout  wire [31:0] sdram_wire_dq,                                               //                                                 .dq
+		output wire [3:0]  sdram_wire_dqm,                                              //                                                 .dqm
+		output wire        sdram_wire_ras_n,                                            //                                                 .ras_n
+		output wire        sdram_wire_we_n,                                             //                                                 .we_n
+		output wire        sys_clk_out_clk,                                             //                                      sys_clk_out.clk
+		input  wire        usb_0_external_interface_INT1,                               //                         usb_0_external_interface.INT1
+		inout  wire [15:0] usb_0_external_interface_DATA,                               //                                                 .DATA
+		output wire        usb_0_external_interface_RST_N,                              //                                                 .RST_N
+		output wire [1:0]  usb_0_external_interface_ADDR,                               //                                                 .ADDR
+		output wire        usb_0_external_interface_CS_N,                               //                                                 .CS_N
+		output wire        usb_0_external_interface_RD_N,                               //                                                 .RD_N
+		output wire        usb_0_external_interface_WR_N,                               //                                                 .WR_N
+		input  wire        usb_0_external_interface_INT0                                //                                                 .INT0
 	);
 
 	wire  [31:0] cpu_data_master_readdata;                                          // mm_interconnect_0:cpu_data_master_readdata -> cpu:d_readdata
@@ -42,6 +54,20 @@ module niosii_USB (
 	wire         mm_interconnect_0_jtag_uart_avalon_jtag_slave_read;                // mm_interconnect_0:jtag_uart_avalon_jtag_slave_read -> jtag_uart:av_read_n
 	wire         mm_interconnect_0_jtag_uart_avalon_jtag_slave_write;               // mm_interconnect_0:jtag_uart_avalon_jtag_slave_write -> jtag_uart:av_write_n
 	wire  [31:0] mm_interconnect_0_jtag_uart_avalon_jtag_slave_writedata;           // mm_interconnect_0:jtag_uart_avalon_jtag_slave_writedata -> jtag_uart:av_writedata
+	wire         mm_interconnect_0_sd_avalon_sdcard_slave_chipselect;               // mm_interconnect_0:SD_avalon_sdcard_slave_chipselect -> SD:i_avalon_chip_select
+	wire  [31:0] mm_interconnect_0_sd_avalon_sdcard_slave_readdata;                 // SD:o_avalon_readdata -> mm_interconnect_0:SD_avalon_sdcard_slave_readdata
+	wire         mm_interconnect_0_sd_avalon_sdcard_slave_waitrequest;              // SD:o_avalon_waitrequest -> mm_interconnect_0:SD_avalon_sdcard_slave_waitrequest
+	wire   [7:0] mm_interconnect_0_sd_avalon_sdcard_slave_address;                  // mm_interconnect_0:SD_avalon_sdcard_slave_address -> SD:i_avalon_address
+	wire         mm_interconnect_0_sd_avalon_sdcard_slave_read;                     // mm_interconnect_0:SD_avalon_sdcard_slave_read -> SD:i_avalon_read
+	wire   [3:0] mm_interconnect_0_sd_avalon_sdcard_slave_byteenable;               // mm_interconnect_0:SD_avalon_sdcard_slave_byteenable -> SD:i_avalon_byteenable
+	wire         mm_interconnect_0_sd_avalon_sdcard_slave_write;                    // mm_interconnect_0:SD_avalon_sdcard_slave_write -> SD:i_avalon_write
+	wire  [31:0] mm_interconnect_0_sd_avalon_sdcard_slave_writedata;                // mm_interconnect_0:SD_avalon_sdcard_slave_writedata -> SD:i_avalon_writedata
+	wire         mm_interconnect_0_usb_avalon_usb_slave_chipselect;                 // mm_interconnect_0:usb_avalon_usb_slave_chipselect -> usb:chipselect
+	wire  [15:0] mm_interconnect_0_usb_avalon_usb_slave_readdata;                   // usb:readdata -> mm_interconnect_0:usb_avalon_usb_slave_readdata
+	wire   [1:0] mm_interconnect_0_usb_avalon_usb_slave_address;                    // mm_interconnect_0:usb_avalon_usb_slave_address -> usb:address
+	wire         mm_interconnect_0_usb_avalon_usb_slave_read;                       // mm_interconnect_0:usb_avalon_usb_slave_read -> usb:read
+	wire         mm_interconnect_0_usb_avalon_usb_slave_write;                      // mm_interconnect_0:usb_avalon_usb_slave_write -> usb:write
+	wire  [15:0] mm_interconnect_0_usb_avalon_usb_slave_writedata;                  // mm_interconnect_0:usb_avalon_usb_slave_writedata -> usb:writedata
 	wire  [31:0] mm_interconnect_0_sysid_control_slave_readdata;                    // sysid:readdata -> mm_interconnect_0:sysid_control_slave_readdata
 	wire   [0:0] mm_interconnect_0_sysid_control_slave_address;                     // mm_interconnect_0:sysid_control_slave_address -> sysid:address
 	wire  [31:0] mm_interconnect_0_performance_counter_control_slave_readdata;      // performance_counter:readdata -> mm_interconnect_0:performance_counter_control_slave_readdata
@@ -78,28 +104,46 @@ module niosii_USB (
 	wire   [2:0] mm_interconnect_0_timer_0_s1_address;                              // mm_interconnect_0:timer_0_s1_address -> timer_0:address
 	wire         mm_interconnect_0_timer_0_s1_write;                                // mm_interconnect_0:timer_0_s1_write -> timer_0:write_n
 	wire  [15:0] mm_interconnect_0_timer_0_s1_writedata;                            // mm_interconnect_0:timer_0_s1_writedata -> timer_0:writedata
-	wire         irq_mapper_receiver0_irq;                                          // jtag_uart:av_irq -> irq_mapper:receiver0_irq
-	wire         irq_mapper_receiver1_irq;                                          // timer_0:irq -> irq_mapper:receiver1_irq
+	wire         irq_mapper_receiver0_irq;                                          // usb:irq -> irq_mapper:receiver0_irq
+	wire         irq_mapper_receiver1_irq;                                          // jtag_uart:av_irq -> irq_mapper:receiver1_irq
+	wire         irq_mapper_receiver2_irq;                                          // timer_0:irq -> irq_mapper:receiver2_irq
 	wire  [31:0] cpu_irq_irq;                                                       // irq_mapper:sender_irq -> cpu:irq
-	wire         rst_controller_reset_out_reset;                                    // rst_controller:reset_out -> audio_pll:ref_reset_reset
-	wire         rst_controller_001_reset_out_reset;                                // rst_controller_001:reset_out -> [cpu:reset_n, irq_mapper:reset, jtag_uart:rst_n, mm_interconnect_0:cpu_reset_reset_bridge_in_reset_reset, onchip_memory:reset, performance_counter:reset_n, rst_translator:in_reset, sdram:reset_n, sysid:reset_n, timer_0:reset_n]
-	wire         rst_controller_001_reset_out_reset_req;                            // rst_controller_001:reset_req -> [cpu:reset_req, onchip_memory:reset_req, rst_translator:reset_req_in]
-	wire         cpu_debug_reset_request_reset;                                     // cpu:debug_reset_request -> rst_controller_001:reset_in0
-	wire         sys_sdram_pll_reset_source_reset;                                  // sys_sdram_pll:reset_source_reset -> rst_controller_001:reset_in1
+	wire         rst_controller_reset_out_reset;                                    // rst_controller:reset_out -> [SD:i_reset_n, cpu:reset_n, irq_mapper:reset, jtag_uart:rst_n, mm_interconnect_0:cpu_reset_reset_bridge_in_reset_reset, onchip_memory:reset, performance_counter:reset_n, rst_translator:in_reset, sdram:reset_n, sysid:reset_n, timer_0:reset_n, usb:reset]
+	wire         rst_controller_reset_out_reset_req;                                // rst_controller:reset_req -> [cpu:reset_req, onchip_memory:reset_req, rst_translator:reset_req_in]
+	wire         cpu_debug_reset_request_reset;                                     // cpu:debug_reset_request -> rst_controller:reset_in0
+	wire         sys_sdram_pll_reset_source_reset;                                  // sys_sdram_pll:reset_source_reset -> rst_controller:reset_in1
+	wire         rst_controller_001_reset_out_reset;                                // rst_controller_001:reset_out -> audio_pll:ref_reset_reset
 	wire         rst_controller_002_reset_out_reset;                                // rst_controller_002:reset_out -> sys_sdram_pll:ref_reset_reset
 	wire         rst_controller_003_reset_out_reset;                                // rst_controller_003:reset_out -> video_pll:ref_reset_reset
 
+	Altera_UP_SD_Card_Avalon_Interface sd (
+		.i_avalon_chip_select (mm_interconnect_0_sd_avalon_sdcard_slave_chipselect),         // avalon_sdcard_slave.chipselect
+		.i_avalon_address     (mm_interconnect_0_sd_avalon_sdcard_slave_address),            //                    .address
+		.i_avalon_read        (mm_interconnect_0_sd_avalon_sdcard_slave_read),               //                    .read
+		.i_avalon_write       (mm_interconnect_0_sd_avalon_sdcard_slave_write),              //                    .write
+		.i_avalon_byteenable  (mm_interconnect_0_sd_avalon_sdcard_slave_byteenable),         //                    .byteenable
+		.i_avalon_writedata   (mm_interconnect_0_sd_avalon_sdcard_slave_writedata),          //                    .writedata
+		.o_avalon_readdata    (mm_interconnect_0_sd_avalon_sdcard_slave_readdata),           //                    .readdata
+		.o_avalon_waitrequest (mm_interconnect_0_sd_avalon_sdcard_slave_waitrequest),        //                    .waitrequest
+		.i_clock              (sys_clk_out_clk),                                             //                 clk.clk
+		.i_reset_n            (~rst_controller_reset_out_reset),                             //               reset.reset_n
+		.b_SD_cmd             (altera_up_sd_card_avalon_interface_0_conduit_end_b_SD_cmd),   //         conduit_end.export
+		.b_SD_dat             (altera_up_sd_card_avalon_interface_0_conduit_end_b_SD_dat),   //                    .export
+		.b_SD_dat3            (altera_up_sd_card_avalon_interface_0_conduit_end_b_SD_dat3),  //                    .export
+		.o_SD_clock           (altera_up_sd_card_avalon_interface_0_conduit_end_o_SD_clock)  //                    .export
+	);
+
 	niosii_USB_audio_pll audio_pll (
-		.ref_clk_clk        (clk_50_3_in_clk),                //      ref_clk.clk
-		.ref_reset_reset    (rst_controller_reset_out_reset), //    ref_reset.reset
-		.audio_clk_clk      (),                               //    audio_clk.clk
-		.reset_source_reset ()                                // reset_source.reset
+		.ref_clk_clk        (clk_50_3_in_clk),                    //      ref_clk.clk
+		.ref_reset_reset    (rst_controller_001_reset_out_reset), //    ref_reset.reset
+		.audio_clk_clk      (),                                   //    audio_clk.clk
+		.reset_source_reset ()                                    // reset_source.reset
 	);
 
 	niosii_USB_cpu cpu (
 		.clk                                 (sys_clk_out_clk),                                   //                       clk.clk
-		.reset_n                             (~rst_controller_001_reset_out_reset),               //                     reset.reset_n
-		.reset_req                           (rst_controller_001_reset_out_reset_req),            //                          .reset_req
+		.reset_n                             (~rst_controller_reset_out_reset),                   //                     reset.reset_n
+		.reset_req                           (rst_controller_reset_out_reset_req),                //                          .reset_req
 		.d_address                           (cpu_data_master_address),                           //               data_master.address
 		.d_byteenable                        (cpu_data_master_byteenable),                        //                          .byteenable
 		.d_read                              (cpu_data_master_read),                              //                          .read
@@ -129,7 +173,7 @@ module niosii_USB (
 
 	niosii_USB_jtag_uart jtag_uart (
 		.clk            (sys_clk_out_clk),                                           //               clk.clk
-		.rst_n          (~rst_controller_001_reset_out_reset),                       //             reset.reset_n
+		.rst_n          (~rst_controller_reset_out_reset),                           //             reset.reset_n
 		.av_chipselect  (mm_interconnect_0_jtag_uart_avalon_jtag_slave_chipselect),  // avalon_jtag_slave.chipselect
 		.av_address     (mm_interconnect_0_jtag_uart_avalon_jtag_slave_address),     //                  .address
 		.av_read_n      (~mm_interconnect_0_jtag_uart_avalon_jtag_slave_read),       //                  .read_n
@@ -137,7 +181,7 @@ module niosii_USB (
 		.av_write_n     (~mm_interconnect_0_jtag_uart_avalon_jtag_slave_write),      //                  .write_n
 		.av_writedata   (mm_interconnect_0_jtag_uart_avalon_jtag_slave_writedata),   //                  .writedata
 		.av_waitrequest (mm_interconnect_0_jtag_uart_avalon_jtag_slave_waitrequest), //                  .waitrequest
-		.av_irq         (irq_mapper_receiver0_irq)                                   //               irq.irq
+		.av_irq         (irq_mapper_receiver1_irq)                                   //               irq.irq
 	);
 
 	niosii_USB_onchip_memory onchip_memory (
@@ -149,14 +193,14 @@ module niosii_USB (
 		.readdata   (mm_interconnect_0_onchip_memory_s1_readdata),   //       .readdata
 		.writedata  (mm_interconnect_0_onchip_memory_s1_writedata),  //       .writedata
 		.byteenable (mm_interconnect_0_onchip_memory_s1_byteenable), //       .byteenable
-		.reset      (rst_controller_001_reset_out_reset),            // reset1.reset
-		.reset_req  (rst_controller_001_reset_out_reset_req),        //       .reset_req
+		.reset      (rst_controller_reset_out_reset),                // reset1.reset
+		.reset_req  (rst_controller_reset_out_reset_req),            //       .reset_req
 		.freeze     (1'b0)                                           // (terminated)
 	);
 
 	niosii_USB_performance_counter performance_counter (
 		.clk           (sys_clk_out_clk),                                                   //           clk.clk
-		.reset_n       (~rst_controller_001_reset_out_reset),                               //         reset.reset_n
+		.reset_n       (~rst_controller_reset_out_reset),                                   //         reset.reset_n
 		.address       (mm_interconnect_0_performance_counter_control_slave_address),       // control_slave.address
 		.begintransfer (mm_interconnect_0_performance_counter_control_slave_begintransfer), //              .begintransfer
 		.readdata      (mm_interconnect_0_performance_counter_control_slave_readdata),      //              .readdata
@@ -166,7 +210,7 @@ module niosii_USB (
 
 	niosii_USB_sdram sdram (
 		.clk            (sys_clk_out_clk),                          //   clk.clk
-		.reset_n        (~rst_controller_001_reset_out_reset),      // reset.reset_n
+		.reset_n        (~rst_controller_reset_out_reset),          // reset.reset_n
 		.az_addr        (mm_interconnect_0_sdram_s1_address),       //    s1.address
 		.az_be_n        (~mm_interconnect_0_sdram_s1_byteenable),   //      .byteenable_n
 		.az_cs          (mm_interconnect_0_sdram_s1_chipselect),    //      .chipselect
@@ -197,20 +241,40 @@ module niosii_USB (
 
 	niosii_USB_sysid sysid (
 		.clock    (sys_clk_out_clk),                                //           clk.clk
-		.reset_n  (~rst_controller_001_reset_out_reset),            //         reset.reset_n
+		.reset_n  (~rst_controller_reset_out_reset),                //         reset.reset_n
 		.readdata (mm_interconnect_0_sysid_control_slave_readdata), // control_slave.readdata
 		.address  (mm_interconnect_0_sysid_control_slave_address)   //              .address
 	);
 
 	niosii_USB_timer_0 timer_0 (
 		.clk        (sys_clk_out_clk),                         //   clk.clk
-		.reset_n    (~rst_controller_001_reset_out_reset),     // reset.reset_n
+		.reset_n    (~rst_controller_reset_out_reset),         // reset.reset_n
 		.address    (mm_interconnect_0_timer_0_s1_address),    //    s1.address
 		.writedata  (mm_interconnect_0_timer_0_s1_writedata),  //      .writedata
 		.readdata   (mm_interconnect_0_timer_0_s1_readdata),   //      .readdata
 		.chipselect (mm_interconnect_0_timer_0_s1_chipselect), //      .chipselect
 		.write_n    (~mm_interconnect_0_timer_0_s1_write),     //      .write_n
-		.irq        (irq_mapper_receiver1_irq)                 //   irq.irq
+		.irq        (irq_mapper_receiver2_irq)                 //   irq.irq
+	);
+
+	niosii_USB_usb usb (
+		.clk        (sys_clk_out_clk),                                   //                clk.clk
+		.reset      (rst_controller_reset_out_reset),                    //              reset.reset
+		.address    (mm_interconnect_0_usb_avalon_usb_slave_address),    //   avalon_usb_slave.address
+		.chipselect (mm_interconnect_0_usb_avalon_usb_slave_chipselect), //                   .chipselect
+		.read       (mm_interconnect_0_usb_avalon_usb_slave_read),       //                   .read
+		.write      (mm_interconnect_0_usb_avalon_usb_slave_write),      //                   .write
+		.writedata  (mm_interconnect_0_usb_avalon_usb_slave_writedata),  //                   .writedata
+		.readdata   (mm_interconnect_0_usb_avalon_usb_slave_readdata),   //                   .readdata
+		.irq        (irq_mapper_receiver0_irq),                          //          interrupt.irq
+		.OTG_INT1   (usb_0_external_interface_INT1),                     // external_interface.export
+		.OTG_DATA   (usb_0_external_interface_DATA),                     //                   .export
+		.OTG_RST_N  (usb_0_external_interface_RST_N),                    //                   .export
+		.OTG_ADDR   (usb_0_external_interface_ADDR),                     //                   .export
+		.OTG_CS_N   (usb_0_external_interface_CS_N),                     //                   .export
+		.OTG_RD_N   (usb_0_external_interface_RD_N),                     //                   .export
+		.OTG_WR_N   (usb_0_external_interface_WR_N),                     //                   .export
+		.OTG_INT0   (usb_0_external_interface_INT0)                      //                   .export
 	);
 
 	niosii_USB_video_pll video_pll (
@@ -223,7 +287,7 @@ module niosii_USB (
 
 	niosii_USB_mm_interconnect_0 mm_interconnect_0 (
 		.sys_sdram_pll_sys_clk_clk                       (sys_clk_out_clk),                                                   //             sys_sdram_pll_sys_clk.clk
-		.cpu_reset_reset_bridge_in_reset_reset           (rst_controller_001_reset_out_reset),                                //   cpu_reset_reset_bridge_in_reset.reset
+		.cpu_reset_reset_bridge_in_reset_reset           (rst_controller_reset_out_reset),                                    //   cpu_reset_reset_bridge_in_reset.reset
 		.cpu_data_master_address                         (cpu_data_master_address),                                           //                   cpu_data_master.address
 		.cpu_data_master_waitrequest                     (cpu_data_master_waitrequest),                                       //                                  .waitrequest
 		.cpu_data_master_byteenable                      (cpu_data_master_byteenable),                                        //                                  .byteenable
@@ -265,6 +329,14 @@ module niosii_USB (
 		.performance_counter_control_slave_readdata      (mm_interconnect_0_performance_counter_control_slave_readdata),      //                                  .readdata
 		.performance_counter_control_slave_writedata     (mm_interconnect_0_performance_counter_control_slave_writedata),     //                                  .writedata
 		.performance_counter_control_slave_begintransfer (mm_interconnect_0_performance_counter_control_slave_begintransfer), //                                  .begintransfer
+		.SD_avalon_sdcard_slave_address                  (mm_interconnect_0_sd_avalon_sdcard_slave_address),                  //            SD_avalon_sdcard_slave.address
+		.SD_avalon_sdcard_slave_write                    (mm_interconnect_0_sd_avalon_sdcard_slave_write),                    //                                  .write
+		.SD_avalon_sdcard_slave_read                     (mm_interconnect_0_sd_avalon_sdcard_slave_read),                     //                                  .read
+		.SD_avalon_sdcard_slave_readdata                 (mm_interconnect_0_sd_avalon_sdcard_slave_readdata),                 //                                  .readdata
+		.SD_avalon_sdcard_slave_writedata                (mm_interconnect_0_sd_avalon_sdcard_slave_writedata),                //                                  .writedata
+		.SD_avalon_sdcard_slave_byteenable               (mm_interconnect_0_sd_avalon_sdcard_slave_byteenable),               //                                  .byteenable
+		.SD_avalon_sdcard_slave_waitrequest              (mm_interconnect_0_sd_avalon_sdcard_slave_waitrequest),              //                                  .waitrequest
+		.SD_avalon_sdcard_slave_chipselect               (mm_interconnect_0_sd_avalon_sdcard_slave_chipselect),               //                                  .chipselect
 		.sdram_s1_address                                (mm_interconnect_0_sdram_s1_address),                                //                          sdram_s1.address
 		.sdram_s1_write                                  (mm_interconnect_0_sdram_s1_write),                                  //                                  .write
 		.sdram_s1_read                                   (mm_interconnect_0_sdram_s1_read),                                   //                                  .read
@@ -280,78 +352,22 @@ module niosii_USB (
 		.timer_0_s1_write                                (mm_interconnect_0_timer_0_s1_write),                                //                                  .write
 		.timer_0_s1_readdata                             (mm_interconnect_0_timer_0_s1_readdata),                             //                                  .readdata
 		.timer_0_s1_writedata                            (mm_interconnect_0_timer_0_s1_writedata),                            //                                  .writedata
-		.timer_0_s1_chipselect                           (mm_interconnect_0_timer_0_s1_chipselect)                            //                                  .chipselect
+		.timer_0_s1_chipselect                           (mm_interconnect_0_timer_0_s1_chipselect),                           //                                  .chipselect
+		.usb_avalon_usb_slave_address                    (mm_interconnect_0_usb_avalon_usb_slave_address),                    //              usb_avalon_usb_slave.address
+		.usb_avalon_usb_slave_write                      (mm_interconnect_0_usb_avalon_usb_slave_write),                      //                                  .write
+		.usb_avalon_usb_slave_read                       (mm_interconnect_0_usb_avalon_usb_slave_read),                       //                                  .read
+		.usb_avalon_usb_slave_readdata                   (mm_interconnect_0_usb_avalon_usb_slave_readdata),                   //                                  .readdata
+		.usb_avalon_usb_slave_writedata                  (mm_interconnect_0_usb_avalon_usb_slave_writedata),                  //                                  .writedata
+		.usb_avalon_usb_slave_chipselect                 (mm_interconnect_0_usb_avalon_usb_slave_chipselect)                  //                                  .chipselect
 	);
 
 	niosii_USB_irq_mapper irq_mapper (
-		.clk           (sys_clk_out_clk),                    //       clk.clk
-		.reset         (rst_controller_001_reset_out_reset), // clk_reset.reset
-		.receiver0_irq (irq_mapper_receiver0_irq),           // receiver0.irq
-		.receiver1_irq (irq_mapper_receiver1_irq),           // receiver1.irq
-		.sender_irq    (cpu_irq_irq)                         //    sender.irq
-	);
-
-	altera_reset_controller #(
-		.NUM_RESET_INPUTS          (1),
-		.OUTPUT_RESET_SYNC_EDGES   ("deassert"),
-		.SYNC_DEPTH                (2),
-		.RESET_REQUEST_PRESENT     (0),
-		.RESET_REQ_WAIT_TIME       (1),
-		.MIN_RST_ASSERTION_TIME    (3),
-		.RESET_REQ_EARLY_DSRT_TIME (1),
-		.USE_RESET_REQUEST_IN0     (0),
-		.USE_RESET_REQUEST_IN1     (0),
-		.USE_RESET_REQUEST_IN2     (0),
-		.USE_RESET_REQUEST_IN3     (0),
-		.USE_RESET_REQUEST_IN4     (0),
-		.USE_RESET_REQUEST_IN5     (0),
-		.USE_RESET_REQUEST_IN6     (0),
-		.USE_RESET_REQUEST_IN7     (0),
-		.USE_RESET_REQUEST_IN8     (0),
-		.USE_RESET_REQUEST_IN9     (0),
-		.USE_RESET_REQUEST_IN10    (0),
-		.USE_RESET_REQUEST_IN11    (0),
-		.USE_RESET_REQUEST_IN12    (0),
-		.USE_RESET_REQUEST_IN13    (0),
-		.USE_RESET_REQUEST_IN14    (0),
-		.USE_RESET_REQUEST_IN15    (0),
-		.ADAPT_RESET_REQUEST       (0)
-	) rst_controller (
-		.reset_in0      (~reset_bridge_in_reset_reset_n), // reset_in0.reset
-		.clk            (clk_50_3_in_clk),                //       clk.clk
-		.reset_out      (rst_controller_reset_out_reset), // reset_out.reset
-		.reset_req      (),                               // (terminated)
-		.reset_req_in0  (1'b0),                           // (terminated)
-		.reset_in1      (1'b0),                           // (terminated)
-		.reset_req_in1  (1'b0),                           // (terminated)
-		.reset_in2      (1'b0),                           // (terminated)
-		.reset_req_in2  (1'b0),                           // (terminated)
-		.reset_in3      (1'b0),                           // (terminated)
-		.reset_req_in3  (1'b0),                           // (terminated)
-		.reset_in4      (1'b0),                           // (terminated)
-		.reset_req_in4  (1'b0),                           // (terminated)
-		.reset_in5      (1'b0),                           // (terminated)
-		.reset_req_in5  (1'b0),                           // (terminated)
-		.reset_in6      (1'b0),                           // (terminated)
-		.reset_req_in6  (1'b0),                           // (terminated)
-		.reset_in7      (1'b0),                           // (terminated)
-		.reset_req_in7  (1'b0),                           // (terminated)
-		.reset_in8      (1'b0),                           // (terminated)
-		.reset_req_in8  (1'b0),                           // (terminated)
-		.reset_in9      (1'b0),                           // (terminated)
-		.reset_req_in9  (1'b0),                           // (terminated)
-		.reset_in10     (1'b0),                           // (terminated)
-		.reset_req_in10 (1'b0),                           // (terminated)
-		.reset_in11     (1'b0),                           // (terminated)
-		.reset_req_in11 (1'b0),                           // (terminated)
-		.reset_in12     (1'b0),                           // (terminated)
-		.reset_req_in12 (1'b0),                           // (terminated)
-		.reset_in13     (1'b0),                           // (terminated)
-		.reset_req_in13 (1'b0),                           // (terminated)
-		.reset_in14     (1'b0),                           // (terminated)
-		.reset_req_in14 (1'b0),                           // (terminated)
-		.reset_in15     (1'b0),                           // (terminated)
-		.reset_req_in15 (1'b0)                            // (terminated)
+		.clk           (sys_clk_out_clk),                //       clk.clk
+		.reset         (rst_controller_reset_out_reset), // clk_reset.reset
+		.receiver0_irq (irq_mapper_receiver0_irq),       // receiver0.irq
+		.receiver1_irq (irq_mapper_receiver1_irq),       // receiver1.irq
+		.receiver2_irq (irq_mapper_receiver2_irq),       // receiver2.irq
+		.sender_irq    (cpu_irq_irq)                     //    sender.irq
 	);
 
 	altera_reset_controller #(
@@ -379,42 +395,105 @@ module niosii_USB (
 		.USE_RESET_REQUEST_IN14    (0),
 		.USE_RESET_REQUEST_IN15    (0),
 		.ADAPT_RESET_REQUEST       (0)
+	) rst_controller (
+		.reset_in0      (cpu_debug_reset_request_reset),      // reset_in0.reset
+		.reset_in1      (sys_sdram_pll_reset_source_reset),   // reset_in1.reset
+		.clk            (sys_clk_out_clk),                    //       clk.clk
+		.reset_out      (rst_controller_reset_out_reset),     // reset_out.reset
+		.reset_req      (rst_controller_reset_out_reset_req), //          .reset_req
+		.reset_req_in0  (1'b0),                               // (terminated)
+		.reset_req_in1  (1'b0),                               // (terminated)
+		.reset_in2      (1'b0),                               // (terminated)
+		.reset_req_in2  (1'b0),                               // (terminated)
+		.reset_in3      (1'b0),                               // (terminated)
+		.reset_req_in3  (1'b0),                               // (terminated)
+		.reset_in4      (1'b0),                               // (terminated)
+		.reset_req_in4  (1'b0),                               // (terminated)
+		.reset_in5      (1'b0),                               // (terminated)
+		.reset_req_in5  (1'b0),                               // (terminated)
+		.reset_in6      (1'b0),                               // (terminated)
+		.reset_req_in6  (1'b0),                               // (terminated)
+		.reset_in7      (1'b0),                               // (terminated)
+		.reset_req_in7  (1'b0),                               // (terminated)
+		.reset_in8      (1'b0),                               // (terminated)
+		.reset_req_in8  (1'b0),                               // (terminated)
+		.reset_in9      (1'b0),                               // (terminated)
+		.reset_req_in9  (1'b0),                               // (terminated)
+		.reset_in10     (1'b0),                               // (terminated)
+		.reset_req_in10 (1'b0),                               // (terminated)
+		.reset_in11     (1'b0),                               // (terminated)
+		.reset_req_in11 (1'b0),                               // (terminated)
+		.reset_in12     (1'b0),                               // (terminated)
+		.reset_req_in12 (1'b0),                               // (terminated)
+		.reset_in13     (1'b0),                               // (terminated)
+		.reset_req_in13 (1'b0),                               // (terminated)
+		.reset_in14     (1'b0),                               // (terminated)
+		.reset_req_in14 (1'b0),                               // (terminated)
+		.reset_in15     (1'b0),                               // (terminated)
+		.reset_req_in15 (1'b0)                                // (terminated)
+	);
+
+	altera_reset_controller #(
+		.NUM_RESET_INPUTS          (1),
+		.OUTPUT_RESET_SYNC_EDGES   ("deassert"),
+		.SYNC_DEPTH                (2),
+		.RESET_REQUEST_PRESENT     (0),
+		.RESET_REQ_WAIT_TIME       (1),
+		.MIN_RST_ASSERTION_TIME    (3),
+		.RESET_REQ_EARLY_DSRT_TIME (1),
+		.USE_RESET_REQUEST_IN0     (0),
+		.USE_RESET_REQUEST_IN1     (0),
+		.USE_RESET_REQUEST_IN2     (0),
+		.USE_RESET_REQUEST_IN3     (0),
+		.USE_RESET_REQUEST_IN4     (0),
+		.USE_RESET_REQUEST_IN5     (0),
+		.USE_RESET_REQUEST_IN6     (0),
+		.USE_RESET_REQUEST_IN7     (0),
+		.USE_RESET_REQUEST_IN8     (0),
+		.USE_RESET_REQUEST_IN9     (0),
+		.USE_RESET_REQUEST_IN10    (0),
+		.USE_RESET_REQUEST_IN11    (0),
+		.USE_RESET_REQUEST_IN12    (0),
+		.USE_RESET_REQUEST_IN13    (0),
+		.USE_RESET_REQUEST_IN14    (0),
+		.USE_RESET_REQUEST_IN15    (0),
+		.ADAPT_RESET_REQUEST       (0)
 	) rst_controller_001 (
-		.reset_in0      (cpu_debug_reset_request_reset),          // reset_in0.reset
-		.reset_in1      (sys_sdram_pll_reset_source_reset),       // reset_in1.reset
-		.clk            (sys_clk_out_clk),                        //       clk.clk
-		.reset_out      (rst_controller_001_reset_out_reset),     // reset_out.reset
-		.reset_req      (rst_controller_001_reset_out_reset_req), //          .reset_req
-		.reset_req_in0  (1'b0),                                   // (terminated)
-		.reset_req_in1  (1'b0),                                   // (terminated)
-		.reset_in2      (1'b0),                                   // (terminated)
-		.reset_req_in2  (1'b0),                                   // (terminated)
-		.reset_in3      (1'b0),                                   // (terminated)
-		.reset_req_in3  (1'b0),                                   // (terminated)
-		.reset_in4      (1'b0),                                   // (terminated)
-		.reset_req_in4  (1'b0),                                   // (terminated)
-		.reset_in5      (1'b0),                                   // (terminated)
-		.reset_req_in5  (1'b0),                                   // (terminated)
-		.reset_in6      (1'b0),                                   // (terminated)
-		.reset_req_in6  (1'b0),                                   // (terminated)
-		.reset_in7      (1'b0),                                   // (terminated)
-		.reset_req_in7  (1'b0),                                   // (terminated)
-		.reset_in8      (1'b0),                                   // (terminated)
-		.reset_req_in8  (1'b0),                                   // (terminated)
-		.reset_in9      (1'b0),                                   // (terminated)
-		.reset_req_in9  (1'b0),                                   // (terminated)
-		.reset_in10     (1'b0),                                   // (terminated)
-		.reset_req_in10 (1'b0),                                   // (terminated)
-		.reset_in11     (1'b0),                                   // (terminated)
-		.reset_req_in11 (1'b0),                                   // (terminated)
-		.reset_in12     (1'b0),                                   // (terminated)
-		.reset_req_in12 (1'b0),                                   // (terminated)
-		.reset_in13     (1'b0),                                   // (terminated)
-		.reset_req_in13 (1'b0),                                   // (terminated)
-		.reset_in14     (1'b0),                                   // (terminated)
-		.reset_req_in14 (1'b0),                                   // (terminated)
-		.reset_in15     (1'b0),                                   // (terminated)
-		.reset_req_in15 (1'b0)                                    // (terminated)
+		.reset_in0      (~reset_bridge_in_reset_reset_n),     // reset_in0.reset
+		.clk            (clk_50_3_in_clk),                    //       clk.clk
+		.reset_out      (rst_controller_001_reset_out_reset), // reset_out.reset
+		.reset_req      (),                                   // (terminated)
+		.reset_req_in0  (1'b0),                               // (terminated)
+		.reset_in1      (1'b0),                               // (terminated)
+		.reset_req_in1  (1'b0),                               // (terminated)
+		.reset_in2      (1'b0),                               // (terminated)
+		.reset_req_in2  (1'b0),                               // (terminated)
+		.reset_in3      (1'b0),                               // (terminated)
+		.reset_req_in3  (1'b0),                               // (terminated)
+		.reset_in4      (1'b0),                               // (terminated)
+		.reset_req_in4  (1'b0),                               // (terminated)
+		.reset_in5      (1'b0),                               // (terminated)
+		.reset_req_in5  (1'b0),                               // (terminated)
+		.reset_in6      (1'b0),                               // (terminated)
+		.reset_req_in6  (1'b0),                               // (terminated)
+		.reset_in7      (1'b0),                               // (terminated)
+		.reset_req_in7  (1'b0),                               // (terminated)
+		.reset_in8      (1'b0),                               // (terminated)
+		.reset_req_in8  (1'b0),                               // (terminated)
+		.reset_in9      (1'b0),                               // (terminated)
+		.reset_req_in9  (1'b0),                               // (terminated)
+		.reset_in10     (1'b0),                               // (terminated)
+		.reset_req_in10 (1'b0),                               // (terminated)
+		.reset_in11     (1'b0),                               // (terminated)
+		.reset_req_in11 (1'b0),                               // (terminated)
+		.reset_in12     (1'b0),                               // (terminated)
+		.reset_req_in12 (1'b0),                               // (terminated)
+		.reset_in13     (1'b0),                               // (terminated)
+		.reset_req_in13 (1'b0),                               // (terminated)
+		.reset_in14     (1'b0),                               // (terminated)
+		.reset_req_in14 (1'b0),                               // (terminated)
+		.reset_in15     (1'b0),                               // (terminated)
+		.reset_req_in15 (1'b0)                                // (terminated)
 	);
 
 	altera_reset_controller #(

@@ -1,54 +1,49 @@
 # # File gsaved with Nlview version 6.3.8  2013-12-19 bk=1.2992 VDI=34 GEI=35
 # 
-preplace inst nios_system_tec3.performance_counter -pg 1 -lvl 5 -y 490
-preplace inst nios_system_tec3.cpu.cpu -pg 1
-preplace inst nios_system_tec3.audio_pll.reset_from_locked -pg 1
-preplace inst nios_system_tec3.audio_pll -pg 1 -lvl 4 -y 470
-preplace inst nios_system_tec3.video_pll.video_pll -pg 1
-preplace inst nios_system_tec3.jtag_uart -pg 1 -lvl 5 -y 170
-preplace inst nios_system_tec3.clk_50_2 -pg 1 -lvl 3 -y 350
-preplace inst nios_system_tec3.sdram -pg 1 -lvl 5 -y 690
-preplace inst nios_system_tec3.nios_custom_instr_floating_point_2_0 -pg 1 -lvl 5 -y 50
-preplace inst nios_system_tec3.clk_50_3 -pg 1 -lvl 3 -y 470
-preplace inst nios_system_tec3.clk_50 -pg 1 -lvl 2 -y 250
-preplace inst nios_system_tec3.audio_pll.audio_pll -pg 1
-preplace inst nios_system_tec3.video_pll.reset_from_locked -pg 1
-preplace inst nios_system_tec3.reset_bridge -pg 1 -lvl 1 -y 270
-preplace inst nios_system_tec3.nios_custom_instr_floating_point_2_0.fpci_multi -pg 1
-preplace inst nios_system_tec3.tanh_module_0 -pg 1 -lvl 5 -y 130
-preplace inst nios_system_tec3.sdram_clk -pg 1 -lvl 5 -y 270
-preplace inst nios_system_tec3.onchip_memory -pg 1 -lvl 5 -y 410
-preplace inst nios_system_tec3.video_pll -pg 1 -lvl 4 -y 350
-preplace inst nios_system_tec3.cpu.reset_bridge -pg 1
-preplace inst nios_system_tec3.cpu.clock_bridge -pg 1
-preplace inst nios_system_tec3.cpu -pg 1 -lvl 4 -y 80
-preplace inst nios_system_tec3.sysid -pg 1 -lvl 5 -y 570
-preplace inst nios_system_tec3.sys_clk -pg 1 -lvl 5 -y 650
-preplace inst nios_system_tec3.sys_sdram_pll.reset_from_locked -pg 1
-preplace inst nios_system_tec3.nios_custom_instr_floating_point_2_0.fpci_combi -pg 1
-preplace inst nios_system_tec3.sys_sdram_pll.sys_pll -pg 1
-preplace inst nios_system_tec3 -pg 1 -lvl 1 -y 40 -regy -20
-preplace inst nios_system_tec3.sys_sdram_pll -pg 1 -lvl 3 -y 250
-preplace inst nios_system_tec3.timer_0 -pg 1 -lvl 5 -y 310
-preplace netloc POINT_TO_POINT<net_container>nios_system_tec3</net_container>(MASTER)clk_50_3.clk_reset,(SLAVE)audio_pll.ref_reset) 1 3 1 N
-preplace netloc FAN_OUT<net_container>nios_system_tec3</net_container>(SLAVE)tanh_module_0.nios_custom_instruction_slave,(SLAVE)nios_custom_instr_floating_point_2_0.s1,(MASTER)cpu.custom_instruction_master,(SLAVE)nios_custom_instr_floating_point_2_0.s2) 1 4 1 1240
-preplace netloc FAN_OUT<net_container>nios_system_tec3</net_container>(MASTER)cpu.irq,(SLAVE)jtag_uart.irq,(SLAVE)timer_0.irq) 1 4 1 1200
-preplace netloc POINT_TO_POINT<net_container>nios_system_tec3</net_container>(SLAVE)audio_pll.ref_clk,(MASTER)clk_50_3.clk) 1 3 1 N
-preplace netloc POINT_TO_POINT<net_container>nios_system_tec3</net_container>(MASTER)clk_50.clk_reset,(SLAVE)sys_sdram_pll.ref_reset) 1 2 1 N
-preplace netloc POINT_TO_POINT<net_container>nios_system_tec3</net_container>(MASTER)clk_50.clk,(SLAVE)sys_sdram_pll.ref_clk) 1 2 1 N
-preplace netloc EXPORT<net_container>nios_system_tec3</net_container>(MASTER)nios_system_tec3.sys_clk_out,(MASTER)sys_clk.out_clk) 1 5 1 NJ
-preplace netloc EXPORT<net_container>nios_system_tec3</net_container>(SLAVE)clk_50_3.clk_in,(SLAVE)nios_system_tec3.clk_50_3_in) 1 0 3 NJ 480 NJ 480 NJ
-preplace netloc FAN_OUT<net_container>nios_system_tec3</net_container>(SLAVE)cpu.clk,(SLAVE)performance_counter.clk,(SLAVE)timer_0.clk,(SLAVE)sys_clk.in_clk,(MASTER)sys_sdram_pll.sys_clk,(SLAVE)sdram.clk,(SLAVE)jtag_uart.clk,(SLAVE)sysid.clk,(SLAVE)onchip_memory.clk1) 1 3 2 800 260 1240
-preplace netloc INTERCONNECT<net_container>nios_system_tec3</net_container>(MASTER)cpu.debug_reset_request,(MASTER)sys_sdram_pll.reset_source,(SLAVE)onchip_memory.reset1,(SLAVE)sysid.reset,(SLAVE)performance_counter.reset,(SLAVE)jtag_uart.reset,(SLAVE)timer_0.reset,(SLAVE)cpu.reset,(SLAVE)sdram.reset) 1 3 2 780 240 1180
-preplace netloc EXPORT<net_container>nios_system_tec3</net_container>(SLAVE)nios_system_tec3.clk_50_in,(SLAVE)clk_50.clk_in) 1 0 2 NJ 260 NJ
-preplace netloc INTERCONNECT<net_container>nios_system_tec3</net_container>(SLAVE)jtag_uart.avalon_jtag_slave,(MASTER)cpu.data_master,(SLAVE)cpu.debug_mem_slave,(SLAVE)onchip_memory.s1,(SLAVE)performance_counter.control_slave,(SLAVE)sdram.s1,(SLAVE)timer_0.s1,(SLAVE)sysid.control_slave,(MASTER)cpu.instruction_master) 1 3 2 820 220 1220
-preplace netloc EXPORT<net_container>nios_system_tec3</net_container>(MASTER)nios_system_tec3.sdram_clk_out,(MASTER)sdram_clk.out_clk) 1 5 1 NJ
-preplace netloc EXPORT<net_container>nios_system_tec3</net_container>(SLAVE)sdram.wire,(SLAVE)nios_system_tec3.sdram_wire) 1 0 5 NJ 760 NJ 760 NJ 760 NJ 760 NJ
-preplace netloc EXPORT<net_container>nios_system_tec3</net_container>(SLAVE)reset_bridge.in_reset,(SLAVE)nios_system_tec3.reset_bridge_in_reset) 1 0 1 NJ
-preplace netloc EXPORT<net_container>nios_system_tec3</net_container>(SLAVE)nios_system_tec3.clk_50_2_in,(SLAVE)clk_50_2.clk_in) 1 0 3 NJ 360 NJ 360 NJ
-preplace netloc FAN_OUT<net_container>nios_system_tec3</net_container>(SLAVE)clk_50_3.clk_in_reset,(MASTER)reset_bridge.out_reset,(SLAVE)clk_50_2.clk_in_reset,(SLAVE)clk_50.clk_in_reset) 1 1 2 330 380 530
-preplace netloc POINT_TO_POINT<net_container>nios_system_tec3</net_container>(MASTER)clk_50_2.clk_reset,(SLAVE)video_pll.ref_reset) 1 3 1 N
-preplace netloc POINT_TO_POINT<net_container>nios_system_tec3</net_container>(MASTER)sys_sdram_pll.sdram_clk,(SLAVE)sdram_clk.in_clk) 1 3 2 NJ 280 NJ
-preplace netloc POINT_TO_POINT<net_container>nios_system_tec3</net_container>(MASTER)clk_50_2.clk,(SLAVE)video_pll.ref_clk) 1 3 1 N
-levelinfo -pg 1 0 140 1630
-levelinfo -hier nios_system_tec3 150 180 360 610 940 1310 1520
+preplace inst niosii_USB.video_pll.reset_from_locked -pg 1
+preplace inst niosii_USB.timer_0 -pg 1 -lvl 5 -y 130
+preplace inst niosii_USB.audio_pll -pg 1 -lvl 4 -y 430
+preplace inst niosii_USB.reset_bridge -pg 1 -lvl 1 -y 270
+preplace inst niosii_USB.jtag_uart -pg 1 -lvl 5 -y 30
+preplace inst niosii_USB.video_pll -pg 1 -lvl 4 -y 310
+preplace inst niosii_USB.clk_50 -pg 1 -lvl 2 -y 210
+preplace inst niosii_USB.sys_sdram_pll.sys_pll -pg 1
+preplace inst niosii_USB.sys_clk -pg 1 -lvl 5 -y 510
+preplace inst niosii_USB.cpu.cpu -pg 1
+preplace inst niosii_USB.cpu -pg 1 -lvl 4 -y 80
+preplace inst niosii_USB.sys_sdram_pll -pg 1 -lvl 3 -y 210
+preplace inst niosii_USB.sdram -pg 1 -lvl 5 -y 550
+preplace inst niosii_USB.onchip_memory -pg 1 -lvl 5 -y 270
+preplace inst niosii_USB.video_pll.video_pll -pg 1
+preplace inst niosii_USB.sys_sdram_pll.reset_from_locked -pg 1
+preplace inst niosii_USB.clk_50_2 -pg 1 -lvl 3 -y 310
+preplace inst niosii_USB.sdram_clk -pg 1 -lvl 5 -y 230
+preplace inst niosii_USB.clk_50_3 -pg 1 -lvl 3 -y 430
+preplace inst niosii_USB.audio_pll.reset_from_locked -pg 1
+preplace inst niosii_USB.performance_counter -pg 1 -lvl 5 -y 350
+preplace inst niosii_USB.audio_pll.audio_pll -pg 1
+preplace inst niosii_USB.cpu.reset_bridge -pg 1
+preplace inst niosii_USB.sysid -pg 1 -lvl 5 -y 430
+preplace inst niosii_USB.cpu.clock_bridge -pg 1
+preplace inst niosii_USB -pg 1 -lvl 1 -y 40 -regy -20
+preplace netloc FAN_OUT<net_container>niosii_USB</net_container>(MASTER)sys_sdram_pll.sys_clk,(SLAVE)cpu.clk,(SLAVE)sysid.clk,(SLAVE)jtag_uart.clk,(SLAVE)sdram.clk,(SLAVE)performance_counter.clk,(SLAVE)sys_clk.in_clk,(SLAVE)timer_0.clk,(SLAVE)onchip_memory.clk1) 1 3 2 780 510 1220
+preplace netloc POINT_TO_POINT<net_container>niosii_USB</net_container>(MASTER)clk_50_3.clk,(SLAVE)audio_pll.ref_clk) 1 3 1 N
+preplace netloc POINT_TO_POINT<net_container>niosii_USB</net_container>(MASTER)clk_50.clk,(SLAVE)sys_sdram_pll.ref_clk) 1 2 1 N
+preplace netloc EXPORT<net_container>niosii_USB</net_container>(SLAVE)niosii_USB.sdram_wire,(SLAVE)sdram.wire) 1 0 5 NJ 620 NJ 620 NJ 620 NJ 620 NJ
+preplace netloc FAN_OUT<net_container>niosii_USB</net_container>(SLAVE)clk_50_2.clk_in_reset,(MASTER)reset_bridge.out_reset,(SLAVE)clk_50_3.clk_in_reset,(SLAVE)clk_50.clk_in_reset) 1 1 2 330 340 530
+preplace netloc POINT_TO_POINT<net_container>niosii_USB</net_container>(SLAVE)video_pll.ref_clk,(MASTER)clk_50_2.clk) 1 3 1 N
+preplace netloc EXPORT<net_container>niosii_USB</net_container>(MASTER)niosii_USB.sys_clk_out,(MASTER)sys_clk.out_clk) 1 5 1 NJ
+preplace netloc EXPORT<net_container>niosii_USB</net_container>(SLAVE)niosii_USB.clk_50_in,(SLAVE)clk_50.clk_in) 1 0 2 NJ 220 NJ
+preplace netloc EXPORT<net_container>niosii_USB</net_container>(SLAVE)niosii_USB.clk_50_2_in,(SLAVE)clk_50_2.clk_in) 1 0 3 NJ 320 NJ 320 NJ
+preplace netloc INTERCONNECT<net_container>niosii_USB</net_container>(SLAVE)cpu.debug_mem_slave,(MASTER)cpu.data_master,(MASTER)cpu.instruction_master,(SLAVE)sysid.control_slave,(SLAVE)jtag_uart.avalon_jtag_slave,(SLAVE)performance_counter.control_slave,(SLAVE)sdram.s1,(SLAVE)onchip_memory.s1,(SLAVE)timer_0.s1) 1 3 2 800 40 1160
+preplace netloc EXPORT<net_container>niosii_USB</net_container>(MASTER)sdram_clk.out_clk,(MASTER)niosii_USB.sdram_clk_out) 1 5 1 NJ
+preplace netloc FAN_OUT<net_container>niosii_USB</net_container>(MASTER)cpu.irq,(SLAVE)timer_0.irq,(SLAVE)jtag_uart.irq) 1 4 1 1180
+preplace netloc EXPORT<net_container>niosii_USB</net_container>(SLAVE)niosii_USB.clk_50_3_in,(SLAVE)clk_50_3.clk_in) 1 0 3 NJ 440 NJ 440 NJ
+preplace netloc INTERCONNECT<net_container>niosii_USB</net_container>(SLAVE)performance_counter.reset,(SLAVE)onchip_memory.reset1,(MASTER)cpu.debug_reset_request,(SLAVE)sysid.reset,(SLAVE)cpu.reset,(SLAVE)jtag_uart.reset,(SLAVE)sdram.reset,(SLAVE)timer_0.reset,(MASTER)sys_sdram_pll.reset_source) 1 3 2 800 220 1200
+preplace netloc POINT_TO_POINT<net_container>niosii_USB</net_container>(SLAVE)sdram_clk.in_clk,(MASTER)sys_sdram_pll.sdram_clk) 1 3 2 NJ 240 NJ
+preplace netloc POINT_TO_POINT<net_container>niosii_USB</net_container>(SLAVE)audio_pll.ref_reset,(MASTER)clk_50_3.clk_reset) 1 3 1 N
+preplace netloc EXPORT<net_container>niosii_USB</net_container>(SLAVE)niosii_USB.reset_bridge_in_reset,(SLAVE)reset_bridge.in_reset) 1 0 1 NJ
+preplace netloc POINT_TO_POINT<net_container>niosii_USB</net_container>(MASTER)clk_50_2.clk_reset,(SLAVE)video_pll.ref_reset) 1 3 1 N
+preplace netloc POINT_TO_POINT<net_container>niosii_USB</net_container>(SLAVE)sys_sdram_pll.ref_reset,(MASTER)clk_50.clk_reset) 1 2 1 N
+levelinfo -pg 1 0 140 1510
+levelinfo -hier niosii_USB 150 180 360 610 920 1260 1400

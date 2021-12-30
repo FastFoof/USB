@@ -14,7 +14,19 @@ module niosii_USB (
 	sdram_wire_dqm,
 	sdram_wire_ras_n,
 	sdram_wire_we_n,
-	sys_clk_out_clk);	
+	sys_clk_out_clk,
+	usb_0_external_interface_INT1,
+	usb_0_external_interface_DATA,
+	usb_0_external_interface_RST_N,
+	usb_0_external_interface_ADDR,
+	usb_0_external_interface_CS_N,
+	usb_0_external_interface_RD_N,
+	usb_0_external_interface_WR_N,
+	usb_0_external_interface_INT0,
+	altera_up_sd_card_avalon_interface_0_conduit_end_b_SD_cmd,
+	altera_up_sd_card_avalon_interface_0_conduit_end_b_SD_dat,
+	altera_up_sd_card_avalon_interface_0_conduit_end_b_SD_dat3,
+	altera_up_sd_card_avalon_interface_0_conduit_end_o_SD_clock);	
 
 	input		clk_50_2_in_clk;
 	input		clk_50_3_in_clk;
@@ -31,4 +43,16 @@ module niosii_USB (
 	output		sdram_wire_ras_n;
 	output		sdram_wire_we_n;
 	output		sys_clk_out_clk;
+	input		usb_0_external_interface_INT1;
+	inout	[15:0]	usb_0_external_interface_DATA;
+	output		usb_0_external_interface_RST_N;
+	output	[1:0]	usb_0_external_interface_ADDR;
+	output		usb_0_external_interface_CS_N;
+	output		usb_0_external_interface_RD_N;
+	output		usb_0_external_interface_WR_N;
+	input		usb_0_external_interface_INT0;
+	inout		altera_up_sd_card_avalon_interface_0_conduit_end_b_SD_cmd;
+	inout		altera_up_sd_card_avalon_interface_0_conduit_end_b_SD_dat;
+	inout		altera_up_sd_card_avalon_interface_0_conduit_end_b_SD_dat3;
+	output		altera_up_sd_card_avalon_interface_0_conduit_end_o_SD_clock;
 endmodule
