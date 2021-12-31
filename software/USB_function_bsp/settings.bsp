@@ -2,10 +2,10 @@
 <sch:Settings xmlns:sch="http://www.altera.com/embeddedsw/bsp/schema">
         <BspType>hal</BspType>
         <BspVersion>default</BspVersion>
-        <BspGeneratedTimeStamp>30-dic-2021 17:21:20</BspGeneratedTimeStamp>
-        <BspGeneratedUnixTimeStamp>1640881280655</BspGeneratedUnixTimeStamp>
+        <BspGeneratedTimeStamp>31-dic-2021 16:50:13</BspGeneratedTimeStamp>
+        <BspGeneratedUnixTimeStamp>1640965813627</BspGeneratedUnixTimeStamp>
         <BspGeneratedLocation>C:\Users\Pablo\Documents\GitHub\USB\software\USB_function_bsp</BspGeneratedLocation>
-        <BspSettingsFile>.\settings.bsp</BspSettingsFile>
+        <BspSettingsFile>settings.bsp</BspSettingsFile>
         <SopcDesignFile>..\..\niosii_USB.sopcinfo</SopcDesignFile>
         <JdiFile>default</JdiFile>
         <Cpu>cpu</Cpu>
@@ -899,6 +899,12 @@
                 <Group xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
         </Setting>
         <MemoryMap>
+                <slaveDescriptor>CY7C67200_IF_0</slaveDescriptor>
+                <addressRange>0x00000000 - 0x0000000F</addressRange>
+                <addressSpan>16</addressSpan>
+                <attributes/>
+        </MemoryMap>
+        <MemoryMap>
                 <slaveDescriptor>sdram</slaveDescriptor>
                 <addressRange>0x08000000 - 0x0FFFFFFF</addressRange>
                 <addressSpan>134217728</addressSpan>
@@ -927,12 +933,6 @@
                 <addressRange>0x10011480 - 0x1001149F</addressRange>
                 <addressSpan>32</addressSpan>
                 <attributes>timer</attributes>
-        </MemoryMap>
-        <MemoryMap>
-                <slaveDescriptor>usb</slaveDescriptor>
-                <addressRange>0x100114A0 - 0x100114AF</addressRange>
-                <addressSpan>16</addressSpan>
-                <attributes/>
         </MemoryMap>
         <MemoryMap>
                 <slaveDescriptor>sysid</slaveDescriptor>

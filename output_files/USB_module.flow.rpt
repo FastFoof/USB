@@ -1,5 +1,5 @@
 Flow report for USB_module
-Thu Dec 30 17:18:34 2021
+Fri Dec 31 16:48:19 2021
 Quartus Prime Version 17.1.0 Build 590 10/25/2017 SJ Lite Edition
 
 
@@ -40,17 +40,17 @@ refer to the applicable agreement for further details.
 +----------------------------------------------------------------------------------+
 ; Flow Summary                                                                     ;
 +------------------------------------+---------------------------------------------+
-; Flow Status                        ; Successful - Thu Dec 30 17:18:27 2021       ;
+; Flow Status                        ; Successful - Fri Dec 31 16:48:12 2021       ;
 ; Quartus Prime Version              ; 17.1.0 Build 590 10/25/2017 SJ Lite Edition ;
 ; Revision Name                      ; USB_module                                  ;
 ; Top-level Entity Name              ; DE2_115_Media_Computer                      ;
 ; Family                             ; Cyclone IV E                                ;
 ; Device                             ; EP4CE115F29C7                               ;
 ; Timing Models                      ; Final                                       ;
-; Total logic elements               ; 7,484 / 114,480 ( 7 % )                     ;
-;     Total combinational functions  ; 6,714 / 114,480 ( 6 % )                     ;
-;     Dedicated logic registers      ; 4,587 / 114,480 ( 4 % )                     ;
-; Total registers                    ; 4706                                        ;
+; Total logic elements               ; 7,449 / 114,480 ( 7 % )                     ;
+;     Total combinational functions  ; 6,700 / 114,480 ( 6 % )                     ;
+;     Dedicated logic registers      ; 4,549 / 114,480 ( 4 % )                     ;
+; Total registers                    ; 4668                                        ;
 ; Total pins                         ; 371 / 529 ( 70 % )                          ;
 ; Total virtual pins                 ; 0                                           ;
 ; Total memory bits                  ; 331,904 / 3,981,312 ( 8 % )                 ;
@@ -64,7 +64,7 @@ refer to the applicable agreement for further details.
 +-------------------+---------------------+
 ; Option            ; Setting             ;
 +-------------------+---------------------+
-; Start date & time ; 12/30/2021 17:16:30 ;
+; Start date & time ; 12/31/2021 16:46:14 ;
 ; Main task         ; Compilation         ;
 ; Revision Name     ; USB_module          ;
 +-------------------+---------------------+
@@ -75,7 +75,7 @@ refer to the applicable agreement for further details.
 +-------------------------------------+--------------------------------------------------------------+---------------+------------------------+------------+
 ; Assignment Name                     ; Value                                                        ; Default Value ; Entity Name            ; Section Id ;
 +-------------------------------------+--------------------------------------------------------------+---------------+------------------------+------------+
-; COMPILER_SIGNATURE_ID               ; 238368715721466.164088098912132                              ; --            ; --                     ; --         ;
+; COMPILER_SIGNATURE_ID               ; 238368715721466.164096557318300                              ; --            ; --                     ; --         ;
 ; MAX_CORE_JUNCTION_TEMP              ; 85                                                           ; --            ; --                     ; --         ;
 ; MIN_CORE_JUNCTION_TEMP              ; 0                                                            ; --            ; --                     ; --         ;
 ; MISC_FILE                           ; niosii_USB/synthesis/../niosii_USB.cmp                       ; --            ; --                     ; --         ;
@@ -87,7 +87,7 @@ refer to the applicable agreement for further details.
 ; PROJECT_OUTPUT_DIRECTORY            ; output_files                                                 ; --            ; --                     ; --         ;
 ; SLD_FILE                            ; niosii_USB/synthesis/niosii_USB.regmap                       ; --            ; --                     ; --         ;
 ; SLD_FILE                            ; niosii_USB/synthesis/niosii_USB.debuginfo                    ; --            ; --                     ; --         ;
-; SLD_INFO                            ; QSYS_NAME niosii_USB HAS_SOPCINFO 1 GENERATION_ID 1640877030 ; --            ; niosii_USB             ; --         ;
+; SLD_INFO                            ; QSYS_NAME niosii_USB HAS_SOPCINFO 1 GENERATION_ID 1640965422 ; --            ; niosii_USB             ; --         ;
 ; SOPCINFO_FILE                       ; niosii_USB/synthesis/../../niosii_USB.sopcinfo               ; --            ; --                     ; --         ;
 ; SYNTHESIS_ONLY_QIP                  ; On                                                           ; --            ; --                     ; --         ;
 ; TOP_LEVEL_ENTITY                    ; DE2_115_Media_Computer                                       ; USB_module    ; --                     ; --         ;
@@ -99,11 +99,11 @@ refer to the applicable agreement for further details.
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
 ; Module Name               ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Synthesis      ; 00:01:05     ; 1.0                     ; 5002 MB             ; 00:01:24                           ;
-; Fitter                    ; 00:00:39     ; 1.0                     ; 5871 MB             ; 00:00:52                           ;
-; Assembler                 ; 00:00:05     ; 1.0                     ; 4712 MB             ; 00:00:04                           ;
+; Analysis & Synthesis      ; 00:01:04     ; 1.0                     ; 5001 MB             ; 00:01:24                           ;
+; Fitter                    ; 00:00:41     ; 1.0                     ; 5875 MB             ; 00:00:54                           ;
+; Assembler                 ; 00:00:05     ; 1.0                     ; 4717 MB             ; 00:00:04                           ;
 ; TimeQuest Timing Analyzer ; 00:00:06     ; 1.2                     ; 4926 MB             ; 00:00:06                           ;
-; Total                     ; 00:01:55     ; --                      ; --                  ; 00:02:26                           ;
+; Total                     ; 00:01:56     ; --                      ; --                  ; 00:02:28                           ;
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 

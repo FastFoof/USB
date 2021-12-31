@@ -409,15 +409,15 @@ assign 	GPIO[35]		= 1'bZ;
         .sdram_wire_ras_n                          (DRAM_RAS_N),                          //                                  .ras_n
         .sdram_wire_we_n                           (DRAM_WE_N),                           //                                  .we_n
 		  .sys_clk_out_clk                           (),                           //                       sys_clk_out.clk
-		  .usb_0_external_interface_INT1                               (1'b1),                               //                         usb_0_external_interface.INT1
-        .usb_0_external_interface_DATA                               (OTG_DATA),                               //                                                 .DATA
-        .usb_0_external_interface_RST_N                              (OTG_RST_N),                              //                                                 .RST_N
-        .usb_0_external_interface_ADDR                               (OTG_ADDR),                               //                                                 .ADDR
-        .usb_0_external_interface_CS_N                               (OTG_CS_N),                               //                                                 .CS_N
-        .usb_0_external_interface_RD_N                               (OTG_RD_N),                               //                                                 .RD_N
-        .usb_0_external_interface_WR_N                               (OTG_WR_N),                               //                                                 .WR_N
-        .usb_0_external_interface_INT0                               (OTG_INT)                                //                                                 .INT0
-  );
+		  .cy7c67200_if_0_conduit_end_DATA                             (OTG_DATA),                             //                       cy7c67200_if_0_conduit_end.DATA
+        .cy7c67200_if_0_conduit_end_ADDR                             (OTG_ADDR),                             //                                                 .ADDR
+        .cy7c67200_if_0_conduit_end_RD_N                             (OTG_RD_N),                             //                                                 .RD_N
+        .cy7c67200_if_0_conduit_end_WR_N                             (OTG_WR_N),                             //                                                 .WR_N
+        .cy7c67200_if_0_conduit_end_CS_N                             (OTG_CS_N),                             //                                                 .CS_N
+        .cy7c67200_if_0_conduit_end_RST_N                            (OTG_RST_N),                            //                                                 .RST_N
+        .cy7c67200_if_0_conduit_end_INT                              (OTG_INT)                             //                                                 .INT
+       
+		 );
 
 
 

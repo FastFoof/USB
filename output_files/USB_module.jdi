@@ -1,6 +1,6 @@
 <sld_project_info>
   <project>
-    <hash md5_digest_80b="4044255360aa304d73e8"/>
+    <hash md5_digest_80b="7e991eb05c009a589197"/>
   </project>
   <file_info>
     <file device="EP4CE115F29C7" path="USB_module_time_limited.sof" usercode="0xFFFFFFFF"/>
@@ -100,7 +100,7 @@
     </sld_info>
     <sld_info hpath="niosii_USB:u0" name="u0">
       <assignment_values>
-        <assignment_value text="QSYS_NAME niosii_USB HAS_SOPCINFO 1 GENERATION_ID 1640877030"/>
+        <assignment_value text="QSYS_NAME niosii_USB HAS_SOPCINFO 1 GENERATION_ID 1640965422"/>
       </assignment_values>
       <parameters/>
     </sld_info>

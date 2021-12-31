@@ -7,6 +7,13 @@
 			clk_50_2_in_clk                                             : in    std_logic                     := 'X';             -- clk
 			clk_50_3_in_clk                                             : in    std_logic                     := 'X';             -- clk
 			clk_50_in_clk                                               : in    std_logic                     := 'X';             -- clk
+			cy7c67200_if_0_conduit_end_DATA                             : inout std_logic_vector(15 downto 0) := (others => 'X'); -- DATA
+			cy7c67200_if_0_conduit_end_ADDR                             : out   std_logic_vector(1 downto 0);                     -- ADDR
+			cy7c67200_if_0_conduit_end_RD_N                             : out   std_logic;                                        -- RD_N
+			cy7c67200_if_0_conduit_end_WR_N                             : out   std_logic;                                        -- WR_N
+			cy7c67200_if_0_conduit_end_CS_N                             : out   std_logic;                                        -- CS_N
+			cy7c67200_if_0_conduit_end_RST_N                            : out   std_logic;                                        -- RST_N
+			cy7c67200_if_0_conduit_end_INT                              : in    std_logic                     := 'X';             -- INT
 			reset_bridge_in_reset_reset_n                               : in    std_logic                     := 'X';             -- reset_n
 			sdram_clk_out_clk                                           : out   std_logic;                                        -- clk
 			sdram_wire_addr                                             : out   std_logic_vector(12 downto 0);                    -- addr
@@ -18,15 +25,7 @@
 			sdram_wire_dqm                                              : out   std_logic_vector(3 downto 0);                     -- dqm
 			sdram_wire_ras_n                                            : out   std_logic;                                        -- ras_n
 			sdram_wire_we_n                                             : out   std_logic;                                        -- we_n
-			sys_clk_out_clk                                             : out   std_logic;                                        -- clk
-			usb_0_external_interface_INT1                               : in    std_logic                     := 'X';             -- INT1
-			usb_0_external_interface_DATA                               : inout std_logic_vector(15 downto 0) := (others => 'X'); -- DATA
-			usb_0_external_interface_RST_N                              : out   std_logic;                                        -- RST_N
-			usb_0_external_interface_ADDR                               : out   std_logic_vector(1 downto 0);                     -- ADDR
-			usb_0_external_interface_CS_N                               : out   std_logic;                                        -- CS_N
-			usb_0_external_interface_RD_N                               : out   std_logic;                                        -- RD_N
-			usb_0_external_interface_WR_N                               : out   std_logic;                                        -- WR_N
-			usb_0_external_interface_INT0                               : in    std_logic                     := 'X'              -- INT0
+			sys_clk_out_clk                                             : out   std_logic                                         -- clk
 		);
 	end component niosii_USB;
 

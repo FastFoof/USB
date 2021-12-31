@@ -142,7 +142,10 @@ ACDS_VERSION := 17.1
 ELF := USB_function.elf
 
 # Paths to C, C++, and assembly source files.
-C_SRCS := prueba.c
+C_SRCS += cy7c67200_device/usb_device.c
+C_SRCS += cy7c67200_device/usb_device_control.c
+C_SRCS += cy7c67200_device/usb_hal.c
+C_SRCS += main.c
 CXX_SRCS :=
 ASM_SRCS :=
 

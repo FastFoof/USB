@@ -47,7 +47,7 @@ module niosii_USB_mm_interconnect_0_router_001_default_decode
      parameter DEFAULT_CHANNEL = 1,
                DEFAULT_WR_CHANNEL = -1,
                DEFAULT_RD_CHANNEL = -1,
-               DEFAULT_DESTID = 5 
+               DEFAULT_DESTID = 6 
    )
   (output [93 - 90 : 0] default_destination_id,
    output [9-1 : 0] default_wr_channel,
@@ -193,19 +193,19 @@ module niosii_USB_mm_interconnect_0_router_001
     // ( 0x8000000 .. 0x10000000 )
     if ( {address[RG:PAD0],{PAD0{1'b0}}} == 29'h8000000   ) begin
             src_channel = 9'b010;
-            src_data[PKT_DEST_ID_H:PKT_DEST_ID_L] = 5;
+            src_data[PKT_DEST_ID_H:PKT_DEST_ID_L] = 6;
     end
 
     // ( 0x10008000 .. 0x10010000 )
     if ( {address[RG:PAD1],{PAD1{1'b0}}} == 29'h10008000   ) begin
             src_channel = 9'b100;
-            src_data[PKT_DEST_ID_H:PKT_DEST_ID_L] = 3;
+            src_data[PKT_DEST_ID_H:PKT_DEST_ID_L] = 4;
     end
 
     // ( 0x10010800 .. 0x10011000 )
     if ( {address[RG:PAD2],{PAD2{1'b0}}} == 29'h10010800   ) begin
             src_channel = 9'b001;
-            src_data[PKT_DEST_ID_H:PKT_DEST_ID_L] = 1;
+            src_data[PKT_DEST_ID_H:PKT_DEST_ID_L] = 2;
     end
 
 end

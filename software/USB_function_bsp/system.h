@@ -4,7 +4,7 @@
  * Machine generated for CPU 'cpu' in SOPC Builder design 'niosii_USB'
  * SOPC Builder design path: ../../niosii_USB.sopcinfo
  *
- * Generated: Thu Dec 30 17:21:21 CET 2021
+ * Generated: Fri Dec 31 16:49:42 CET 2021
  */
 
 /*
@@ -143,6 +143,20 @@
 
 
 /*
+ * CY7C67200_IF_0 configuration
+ *
+ */
+
+#define ALT_MODULE_CLASS_CY7C67200_IF_0 CY7C67200_IF
+#define CY7C67200_IF_0_BASE 0x0
+#define CY7C67200_IF_0_IRQ 1
+#define CY7C67200_IF_0_IRQ_INTERRUPT_CONTROLLER_ID 0
+#define CY7C67200_IF_0_NAME "/dev/CY7C67200_IF_0"
+#define CY7C67200_IF_0_SPAN 16
+#define CY7C67200_IF_0_TYPE "CY7C67200_IF"
+
+
+/*
  * Define for each module class mastered by the CPU
  *
  */
@@ -154,8 +168,8 @@
 #define __ALTERA_AVALON_SYSID_QSYS
 #define __ALTERA_AVALON_TIMER
 #define __ALTERA_NIOS2_GEN2
-#define __ALTERA_UP_AVALON_USB
 #define __ALTERA_UP_SD_CARD_AVALON_INTERFACE
+#define __CY7C67200_IF
 
 
 /*
@@ -178,8 +192,8 @@
  */
 
 #define ALT_DEVICE_FAMILY "Cyclone IV E"
+#define ALT_ENHANCED_INTERRUPT_API_PRESENT
 #define ALT_IRQ_BASE NULL
-#define ALT_LEGACY_INTERRUPT_API_PRESENT
 #define ALT_LOG_PORT "/dev/null"
 #define ALT_LOG_PORT_BASE 0x0
 #define ALT_LOG_PORT_DEV null
@@ -332,7 +346,7 @@
 #define SYSID_IRQ_INTERRUPT_CONTROLLER_ID -1
 #define SYSID_NAME "/dev/sysid"
 #define SYSID_SPAN 8
-#define SYSID_TIMESTAMP 1640877030
+#define SYSID_TIMESTAMP 1640965422
 #define SYSID_TYPE "altera_avalon_sysid_qsys"
 
 
@@ -360,19 +374,5 @@
 #define TIMER_0_TICKS_PER_SEC 1000
 #define TIMER_0_TIMEOUT_PULSE_OUTPUT 0
 #define TIMER_0_TYPE "altera_avalon_timer"
-
-
-/*
- * usb configuration
- *
- */
-
-#define ALT_MODULE_CLASS_usb altera_up_avalon_usb
-#define USB_BASE 0x100114a0
-#define USB_IRQ 1
-#define USB_IRQ_INTERRUPT_CONTROLLER_ID 0
-#define USB_NAME "/dev/usb"
-#define USB_SPAN 16
-#define USB_TYPE "altera_up_avalon_usb"
 
 #endif /* __SYSTEM_H_ */

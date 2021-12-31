@@ -4,7 +4,7 @@
  * Machine generated for CPU 'cpu' in SOPC Builder design 'niosii_USB'
  * SOPC Builder design path: ../../niosii_USB.sopcinfo
  *
- * Generated: Thu Dec 30 17:21:21 CET 2021
+ * Generated: Fri Dec 31 16:49:42 CET 2021
  */
 
 /*
@@ -64,7 +64,6 @@
 #include "altera_avalon_performance_counter.h"
 #include "altera_avalon_sysid_qsys.h"
 #include "altera_avalon_timer.h"
-#include "altera_up_avalon_usb.h"
 
 /*
  * Allocate the device storage
@@ -75,7 +74,6 @@ ALTERA_AVALON_JTAG_UART_INSTANCE ( JTAG_UART, jtag_uart);
 ALTERA_AVALON_PERFORMANCE_COUNTER_INSTANCE ( PERFORMANCE_COUNTER, performance_counter);
 ALTERA_AVALON_SYSID_QSYS_INSTANCE ( SYSID, sysid);
 ALTERA_AVALON_TIMER_INSTANCE ( TIMER_0, timer_0);
-ALTERA_UP_AVALON_USB_INSTANCE ( USB, usb);
 ALTERA_UP_SD_CARD_AVALON_INTERFACE_INSTANCE ( SD, SD);
 
 /*
@@ -103,6 +101,5 @@ void alt_sys_init( void )
     ALTERA_AVALON_JTAG_UART_INIT ( JTAG_UART, jtag_uart);
     ALTERA_AVALON_PERFORMANCE_COUNTER_INIT ( PERFORMANCE_COUNTER, performance_counter);
     ALTERA_AVALON_SYSID_QSYS_INIT ( SYSID, sysid);
-    ALTERA_UP_AVALON_USB_INIT ( USB, usb);
     ALTERA_UP_SD_CARD_AVALON_INTERFACE_INIT ( SD, SD);
 }

@@ -1,4 +1,4 @@
-18:17:05 **** Incremental Build of configuration Nios II for project USB_function ****
+16:05:28 **** Incremental Build of configuration Nios II for project USB_function ****
 make all 
 Info: Building ../USB_function_bsp/
 C:/intelFPGA_lite/17.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../USB_function_bsp/
@@ -6,48 +6,17 @@ C:/intelFPGA_lite/17.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-dir
 Info: Compiling prueba.c to obj/default/prueba.o
 nios2-elf-gcc -xc -MP -MMD -c -I../USB_function_bsp//HAL/inc -I../USB_function_bsp/ -I../USB_function_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx -mgpopt=global  -o obj/default/prueba.o prueba.c
 prueba.c: In function 'main':
-prueba.c:22:10: warning: implicit declaration of function 'alt_up_usb_setup' [-Wimplicit-function-declaration]
-    HID = alt_up_usb_setup(usb_device, &addr, &port);
-          ^
-prueba.c:27:14: warning: implicit declaration of function 'alt_up_usb_set_config' [-Wimplicit-function-declaration]
-     mycode = alt_up_usb_set_config(usb_device, addr, port, config);
-              ^
-prueba.c:30:6: warning: implicit declaration of function 'alt_up_usb_play_mouse' [-Wimplicit-function-declaration]
+prueba.c:33:6: warning: implicit declaration of function 'alt_up_usb_play_mouse' [-Wimplicit-function-declaration]
       alt_up_usb_play_mouse(usb_device, addr, port);
       ^
-prueba.c: At top level:
-prueba.c:44:15: error: conflicting types for 'alt_up_usb_setup'
-  unsigned int alt_up_usb_setup(alt_up_usb_dev * usb_device, int * addr_ptr, int * port_ptr) {
-               ^
-prueba.c:22:10: note: previous implicit declaration of 'alt_up_usb_setup' was here
-    HID = alt_up_usb_setup(usb_device, &addr, &port);
-          ^
-prueba.c: In function 'alt_up_usb_setup':
-prueba.c:59:3: warning: implicit declaration of function 'alt_up_usb_reset' [-Wimplicit-function-declaration]
-   alt_up_usb_reset(usb_device);
-   ^
-prueba.c:60:3: warning: implicit declaration of function 'alt_up_usb_hc_initialize_defaults' [-Wimplicit-function-declaration]
-   alt_up_usb_hc_initialize_defaults(usb_device);
-   ^
-prueba.c:63:3: warning: implicit declaration of function 'alt_up_usb_hc_set_operational' [-Wimplicit-function-declaration]
-   alt_up_usb_hc_set_operational(usb_device);
-   ^
-prueba.c:64:3: warning: implicit declaration of function 'alt_up_usb_enable_ports' [-Wimplicit-function-declaration]
-   alt_up_usb_enable_ports(usb_device);
-   ^
-prueba.c:67:3: warning: implicit declaration of function 'alt_up_usb_hc_reg_write_16' [-Wimplicit-function-declaration]
-   alt_up_usb_hc_reg_write_16(usb_device, ALT_UP_USB_HcControl, 0x6c0);
-   ^
-prueba.c:75:12: warning: implicit declaration of function 'alt_up_usb_assign_address' [-Wimplicit-function-declaration]
-   status = alt_up_usb_assign_address(usb_device, new_port1_addr,new_port2_addr, print_port_info);
-            ^
-prueba.c:93:13: warning: implicit declaration of function 'alt_up_usb_get_control' [-Wimplicit-function-declaration]
-    mycode = alt_up_usb_get_control(usb_device, rbuf, *addr_ptr, 'D', extra, *port_ptr);
-             ^
-prueba.c:97:5: warning: implicit declaration of function 'alt_up_usb_addr_info' [-Wimplicit-function-declaration]
-     alt_up_usb_addr_info(*addr_ptr, 'W', 'O', iManufacturer);
-     ^
-make: *** [obj/default/prueba.o] Error 1
+Info: Linking USB_function.elf
+nios2-elf-g++  -T'../USB_function_bsp//linker.x' -msys-crt0='../USB_function_bsp//obj/HAL/src/crt0.o' -msys-lib=hal_bsp -L../USB_function_bsp/   -Wl,-Map=USB_function.map   -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx -mgpopt=global  -o USB_function.elf obj/default/prueba.o -lm -msys-lib=m
+nios2-elf-insert USB_function.elf --thread_model hal --cpu_name cpu --qsys true --simulation_enabled false --id 0 --sidp 0x100114b0 --timestamp 1640877030 --stderr_dev jtag_uart --stdin_dev jtag_uart --stdout_dev jtag_uart --sopc_system_name niosii_USB --quartus_project_dir "C:/Users/Pablo/Documents/GitHub/USB" --jdi ../..//output_files/USB_module.jdi --sopcinfo C:/Users/Pablo/Documents/GitHub/USB/software/USB_function_bsp/../../niosii_USB.sopcinfo
+Info: (USB_function.elf) 79 KBytes program size (code + initialized data).
+Info:                    130985 KBytes free for stack + heap.
+Info: Creating USB_function.objdump
+nios2-elf-objdump --disassemble --syms --all-header --source USB_function.elf >USB_function.objdump
+[USB_function build complete]
 
-18:17:07 Build Finished (took 1s.444ms)
+16:05:31 Build Finished (took 3s.592ms)
 
