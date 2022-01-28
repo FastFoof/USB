@@ -1,0 +1,111 @@
+# # File gsaved with Nlview version 6.3.8  2013-12-19 bk=1.2992 VDI=34 GEI=35
+# 
+preplace inst nios_system.sys_sdram_pll -pg 1 -lvl 3 -y 950
+preplace inst nios_system.serial_port -pg 1 -lvl 5 -y 1510
+preplace inst nios_system.flash_controller.tda -pg 1
+preplace inst nios_system.vga_clk -pg 1 -lvl 5 -y 110
+preplace inst nios_system.mtl_controller -pg 1 -lvl 10 -y 140
+preplace inst nios_system.audio_pll.audio_pll -pg 1
+preplace inst nios_system.audio -pg 1 -lvl 5 -y 500
+preplace inst nios_system.CY7C67200_IF -pg 1 -lvl 5 -y 330
+preplace inst nios_system.sys_clk -pg 1 -lvl 5 -y 2230
+preplace inst nios_system.reset_bridge -pg 1 -lvl 1 -y 1000
+preplace inst nios_system.pushbuttons -pg 1 -lvl 5 -y 1390
+preplace inst nios_system.mtl_pixel_buffer_dma -pg 1 -lvl 5 -y 190
+preplace inst nios_system.mtl_dual_clock_buffer -pg 1 -lvl 9 -y 140
+preplace inst nios_system.green_leds -pg 1 -lvl 5 -y 2130
+preplace inst nios_system.flash_bridge -pg 1 -lvl 6 -y 260
+preplace inst nios_system.char_lcd -pg 1 -lvl 5 -y 2370
+preplace inst nios_system.HEX7_HEX4 -pg 1 -lvl 5 -y 1930
+preplace inst nios_system.HEX3_HEX0 -pg 1 -lvl 5 -y 1830
+preplace inst nios_system -pg 1 -lvl 1 -y 40 -regy -20
+preplace inst nios_system.sysid -pg 1 -lvl 5 -y 1750
+preplace inst nios_system.sys_sdram_pll.reset_from_locked -pg 1
+preplace inst nios_system.sdram_clk -pg 1 -lvl 5 -y 1070
+preplace inst nios_system.onchip_memory -pg 1 -lvl 5 -y 990
+preplace inst nios_system.flash_controller.slave_translator -pg 1
+preplace inst nios_system.clk_50_2 -pg 1 -lvl 3 -y 100
+preplace inst nios_system.clk_50 -pg 1 -lvl 2 -y 950
+preplace inst nios_system.audio_pll -pg 1 -lvl 4 -y 450
+preplace inst nios_system.video_pll -pg 1 -lvl 4 -y 70
+preplace inst nios_system.sys_sdram_pll.sys_pll -pg 1
+preplace inst nios_system.red_leds -pg 1 -lvl 5 -y 2270
+preplace inst nios_system.clk_50_3 -pg 1 -lvl 3 -y 450
+preplace inst nios_system.ps2_mouse -pg 1 -lvl 5 -y 870
+preplace inst nios_system.mtl_clk -pg 1 -lvl 5 -y 30
+preplace inst nios_system.flash_controller.reset -pg 1
+preplace inst nios_system.alpha_blending -pg 1 -lvl 8 -y 120
+preplace inst nios_system.video_pll.reset_from_locked -pg 1
+preplace inst nios_system.video_pll.video_pll -pg 1
+preplace inst nios_system.sram -pg 1 -lvl 5 -y 2770
+preplace inst nios_system.flash_controller.tdt -pg 1
+preplace inst nios_system.SD_Card -pg 1 -lvl 5 -y 2570
+preplace inst nios_system.cpu.clock_bridge -pg 1
+preplace inst nios_system.cpu -pg 1 -lvl 4 -y 590
+preplace inst nios_system.flash_controller.clk -pg 1
+preplace inst nios_system.flash_controller -pg 1 -lvl 5 -y 650
+preplace inst nios_system.audio_config -pg 1 -lvl 5 -y 2030
+preplace inst nios_system.mtl_rgb_resampler -pg 1 -lvl 6 -y 160
+preplace inst nios_system.mtl_char_buffer -pg 1 -lvl 5 -y 2470
+preplace inst nios_system.cpu.reset_bridge -pg 1
+preplace inst nios_system.timer -pg 1 -lvl 5 -y 1290
+preplace inst nios_system.switches -pg 1 -lvl 5 -y 1630
+preplace inst nios_system.sdram -pg 1 -lvl 5 -y 2670
+preplace inst nios_system.performance_counter -pg 1 -lvl 5 -y 1210
+preplace inst nios_system.jtag_uart -pg 1 -lvl 5 -y 1110
+preplace inst nios_system.cpu.cpu -pg 1
+preplace inst nios_system.ps2_key -pg 1 -lvl 5 -y 750
+preplace inst nios_system.mtl_scaler -pg 1 -lvl 7 -y 170
+preplace inst nios_system.audio_pll.reset_from_locked -pg 1
+preplace inst nios_system.audio_clk -pg 1 -lvl 5 -y 450
+preplace netloc INTERCONNECT<net_container>nios_system</net_container>(SLAVE)switches.avalon_parallel_port_slave,(SLAVE)pushbuttons.avalon_parallel_port_slave,(SLAVE)jtag_uart.avalon_jtag_slave,(SLAVE)char_lcd.avalon_lcd_slave,(SLAVE)timer.s1,(SLAVE)onchip_memory.s1,(SLAVE)mtl_pixel_buffer_dma.avalon_control_slave,(SLAVE)audio.avalon_audio_slave,(SLAVE)mtl_char_buffer.avalon_char_control_slave,(SLAVE)sram.avalon_sram_slave,(SLAVE)HEX3_HEX0.avalon_parallel_port_slave,(MASTER)cpu.instruction_master,(MASTER)cpu.data_master,(SLAVE)mtl_char_buffer.avalon_char_buffer_slave,(SLAVE)flash_controller.uas,(SLAVE)cpu.debug_mem_slave,(SLAVE)CY7C67200_IF.hpi,(SLAVE)green_leds.avalon_parallel_port_slave,(SLAVE)audio_config.avalon_av_config_slave,(SLAVE)serial_port.avalon_rs232_slave,(SLAVE)performance_counter.control_slave,(SLAVE)HEX7_HEX4.avalon_parallel_port_slave,(SLAVE)red_leds.avalon_parallel_port_slave,(SLAVE)ps2_mouse.avalon_ps2_slave,(SLAVE)sdram.s1,(SLAVE)ps2_key.avalon_ps2_slave,(SLAVE)sysid.control_slave,(SLAVE)SD_Card.avalon_sdcard_slave,(MASTER)mtl_pixel_buffer_dma.avalon_pixel_dma_master) 1 3 3 880 530 1360 180 1820
+preplace netloc POINT_TO_POINT<net_container>nios_system</net_container>(MASTER)mtl_dual_clock_buffer.avalon_dc_buffer_source,(SLAVE)mtl_controller.avalon_vga_sink) 1 9 1 3200
+preplace netloc EXPORT<net_container>nios_system</net_container>(SLAVE)serial_port.external_interface,(SLAVE)nios_system.serial_port_external_interface) 1 0 5 NJ 1560 NJ 1560 NJ 1560 NJ 1560 NJ
+preplace netloc EXPORT<net_container>nios_system</net_container>(SLAVE)nios_system.ps2_key_external_interface,(SLAVE)ps2_key.external_interface) 1 0 5 NJ 800 NJ 800 NJ 800 NJ 800 NJ
+preplace netloc EXPORT<net_container>nios_system</net_container>(SLAVE)nios_system.clk_50_2_in,(SLAVE)clk_50_2.clk_in) 1 0 3 NJ 110 NJ 110 NJ
+preplace netloc EXPORT<net_container>nios_system</net_container>(SLAVE)nios_system.hex7_hex4_external_interface,(SLAVE)HEX7_HEX4.external_interface) 1 0 5 NJ 1980 NJ 1980 NJ 1980 NJ 1980 NJ
+preplace netloc POINT_TO_POINT<net_container>nios_system</net_container>(MASTER)clk_50_2.clk_reset,(SLAVE)video_pll.ref_reset) 1 3 1 880
+preplace netloc EXPORT<net_container>nios_system</net_container>(SLAVE)flash_bridge.out,(SLAVE)nios_system.flash_bridge_out) 1 0 6 NJ 300 NJ 300 NJ 300 NJ 300 NJ 300 NJ
+preplace netloc INTERCONNECT<net_container>nios_system</net_container>(SLAVE)audio.reset,(SLAVE)sysid.reset,(SLAVE)mtl_pixel_buffer_dma.reset,(SLAVE)CY7C67200_IF.clock_sink_reset,(SLAVE)mtl_controller.reset,(SLAVE)switches.reset,(SLAVE)pushbuttons.reset,(SLAVE)timer.reset,(MASTER)video_pll.reset_source,(SLAVE)red_leds.reset,(SLAVE)mtl_dual_clock_buffer.reset_stream_out,(SLAVE)flash_bridge.reset,(SLAVE)ps2_key.reset,(SLAVE)jtag_uart.reset,(SLAVE)sdram.reset,(SLAVE)alpha_blending.reset,(SLAVE)sram.reset,(SLAVE)cpu.reset,(SLAVE)ps2_mouse.reset,(SLAVE)char_lcd.reset,(SLAVE)mtl_dual_clock_buffer.reset_stream_in,(SLAVE)SD_Card.reset,(SLAVE)mtl_char_buffer.reset,(SLAVE)serial_port.reset,(SLAVE)mtl_scaler.reset,(MASTER)cpu.debug_reset_request,(SLAVE)mtl_rgb_resampler.reset,(SLAVE)audio_config.reset,(SLAVE)HEX7_HEX4.reset,(MASTER)sys_sdram_pll.reset_source,(SLAVE)performance_counter.reset,(SLAVE)green_leds.reset,(SLAVE)onchip_memory.reset1,(SLAVE)HEX3_HEX0.reset,(SLAVE)flash_controller.reset) 1 3 7 840 730 1300 320 1900 150 2190 160 2450 250 2890 290 3260
+preplace netloc FAN_OUT<net_container>nios_system</net_container>(SLAVE)green_leds.clk,(SLAVE)ps2_mouse.clk,(SLAVE)sys_clk.in_clk,(SLAVE)flash_bridge.clk,(SLAVE)serial_port.clk,(SLAVE)red_leds.clk,(SLAVE)CY7C67200_IF.clock_sink,(SLAVE)timer.clk,(SLAVE)onchip_memory.clk1,(SLAVE)SD_Card.clk,(SLAVE)mtl_rgb_resampler.clk,(MASTER)sys_sdram_pll.sys_clk,(SLAVE)performance_counter.clk,(SLAVE)alpha_blending.clk,(SLAVE)sdram.clk,(SLAVE)jtag_uart.clk,(SLAVE)sysid.clk,(SLAVE)audio.clk,(SLAVE)mtl_pixel_buffer_dma.clk,(SLAVE)mtl_char_buffer.clk,(SLAVE)cpu.clk,(SLAVE)char_lcd.clk,(SLAVE)audio_config.clk,(SLAVE)HEX3_HEX0.clk,(SLAVE)HEX7_HEX4.clk,(SLAVE)ps2_key.clk,(SLAVE)switches.clk,(SLAVE)mtl_scaler.clk,(SLAVE)sram.clk,(SLAVE)flash_controller.clk,(SLAVE)pushbuttons.clk,(SLAVE)mtl_dual_clock_buffer.clock_stream_in) 1 3 6 860 960 1380 280 1860 130 2230 140 2470 230 NJ
+preplace netloc POINT_TO_POINT<net_container>nios_system</net_container>(SLAVE)audio_pll.ref_clk,(MASTER)clk_50_3.clk) 1 3 1 N
+preplace netloc EXPORT<net_container>nios_system</net_container>(SLAVE)nios_system.audio_config_external_interface,(SLAVE)audio_config.external_interface) 1 0 5 NJ 2080 NJ 2080 NJ 2080 NJ 2080 NJ
+preplace netloc EXPORT<net_container>nios_system</net_container>(MASTER)nios_system.vga_clk_out,(MASTER)vga_clk.out_clk) 1 5 6 NJ 90 NJ 90 NJ 70 NJ 70 NJ 70 NJ
+preplace netloc POINT_TO_POINT<net_container>nios_system</net_container>(SLAVE)mtl_scaler.avalon_scaler_sink,(MASTER)mtl_rgb_resampler.avalon_rgb_source) 1 6 1 2210
+preplace netloc EXPORT<net_container>nios_system</net_container>(SLAVE)CY7C67200_IF.conduit_end,(SLAVE)nios_system.cy7c67200_if_conduit_end) 1 0 5 NJ 380 NJ 380 NJ 380 NJ 380 NJ
+preplace netloc FAN_OUT<net_container>nios_system</net_container>(SLAVE)serial_port.interrupt,(SLAVE)audio.interrupt,(SLAVE)CY7C67200_IF.interrupt_sender,(SLAVE)pushbuttons.interrupt,(SLAVE)timer.irq,(SLAVE)switches.interrupt,(MASTER)cpu.irq,(SLAVE)ps2_key.interrupt,(SLAVE)jtag_uart.irq,(SLAVE)ps2_mouse.interrupt) 1 4 1 1280
+preplace netloc POINT_TO_POINT<net_container>nios_system</net_container>(MASTER)flash_controller.tcm,(SLAVE)flash_bridge.tcs) 1 5 1 1920
+preplace netloc EXPORT<net_container>nios_system</net_container>(MASTER)nios_system.sys_clk_out,(MASTER)sys_clk.out_clk) 1 5 6 NJ 2240 NJ 2240 NJ 2240 NJ 2240 NJ 2240 NJ
+preplace netloc EXPORT<net_container>nios_system</net_container>(MASTER)nios_system.mtl_clk_out,(MASTER)mtl_clk.out_clk) 1 5 6 NJ 40 NJ 40 NJ 110 NJ 110 NJ 110 NJ
+preplace netloc EXPORT<net_container>nios_system</net_container>(SLAVE)HEX3_HEX0.external_interface,(SLAVE)nios_system.hex3_hex0_external_interface) 1 0 5 NJ 1880 NJ 1880 NJ 1880 NJ 1880 NJ
+preplace netloc EXPORT<net_container>nios_system</net_container>(SLAVE)nios_system.char_lcd_external_interface,(SLAVE)char_lcd.external_interface) 1 0 5 NJ 2420 NJ 2420 NJ 2420 NJ 2420 NJ
+preplace netloc EXPORT<net_container>nios_system</net_container>(SLAVE)sram.external_interface,(SLAVE)nios_system.sram_external_interface) 1 0 5 NJ 2820 NJ 2820 NJ 2820 NJ 2820 NJ
+preplace netloc POINT_TO_POINT<net_container>nios_system</net_container>(SLAVE)alpha_blending.avalon_foreground_sink,(MASTER)mtl_char_buffer.avalon_char_source) 1 5 3 NJ 2500 NJ 2500 2510
+preplace netloc EXPORT<net_container>nios_system</net_container>(SLAVE)clk_50_3.clk_in,(SLAVE)nios_system.clk_50_3_in) 1 0 3 NJ 460 NJ 460 NJ
+preplace netloc EXPORT<net_container>nios_system</net_container>(SLAVE)switches.external_interface,(SLAVE)nios_system.switches_external_interface) 1 0 5 NJ 1680 NJ 1680 NJ 1680 NJ 1680 NJ
+preplace netloc POINT_TO_POINT<net_container>nios_system</net_container>(MASTER)clk_50.clk_reset,(SLAVE)sys_sdram_pll.ref_reset) 1 2 1 N
+preplace netloc EXPORT<net_container>nios_system</net_container>(SLAVE)green_leds.external_interface,(SLAVE)nios_system.green_leds_external_interface) 1 0 5 NJ 2180 NJ 2180 NJ 2180 NJ 2180 NJ
+preplace netloc POINT_TO_POINT<net_container>nios_system</net_container>(SLAVE)vga_clk.in_clk,(MASTER)video_pll.vga_clk) 1 4 1 N
+preplace netloc POINT_TO_POINT<net_container>nios_system</net_container>(SLAVE)video_pll.ref_clk,(MASTER)clk_50_2.clk) 1 3 1 860
+preplace netloc EXPORT<net_container>nios_system</net_container>(SLAVE)nios_system.ps2_mouse_external_interface,(SLAVE)ps2_mouse.external_interface) 1 0 5 NJ 910 NJ 910 NJ 910 NJ 910 NJ
+preplace netloc EXPORT<net_container>nios_system</net_container>(MASTER)nios_system.audio_clk_out,(MASTER)audio_clk.out_clk) 1 5 6 NJ 460 NJ 460 NJ 460 NJ 460 NJ 460 NJ
+preplace netloc POINT_TO_POINT<net_container>nios_system</net_container>(SLAVE)mtl_rgb_resampler.avalon_rgb_sink,(MASTER)mtl_pixel_buffer_dma.avalon_pixel_source) 1 5 1 1880
+preplace netloc EXPORT<net_container>nios_system</net_container>(SLAVE)nios_system.alpha_blending_avalon_background_sink,(SLAVE)alpha_blending.avalon_background_sink) 1 0 8 NJ 190 NJ 190 NJ 190 NJ 190 NJ 160 NJ 250 NJ 260 NJ
+preplace netloc EXPORT<net_container>nios_system</net_container>(SLAVE)pushbuttons.external_interface,(SLAVE)nios_system.pushbuttons_external_interface) 1 0 5 NJ 1440 NJ 1440 NJ 1440 NJ 1440 NJ
+preplace netloc POINT_TO_POINT<net_container>nios_system</net_container>(MASTER)clk_50.clk,(SLAVE)sys_sdram_pll.ref_clk) 1 2 1 N
+preplace netloc EXPORT<net_container>nios_system</net_container>(SLAVE)red_leds.external_interface,(SLAVE)nios_system.red_leds_external_interface) 1 0 5 NJ 2320 NJ 2320 NJ 2320 NJ 2320 NJ
+preplace netloc POINT_TO_POINT<net_container>nios_system</net_container>(MASTER)alpha_blending.avalon_blended_source,(SLAVE)mtl_dual_clock_buffer.avalon_dc_buffer_sink) 1 8 1 N
+preplace netloc EXPORT<net_container>nios_system</net_container>(SLAVE)nios_system.sdram_wire,(SLAVE)sdram.wire) 1 0 5 NJ 2740 NJ 2740 NJ 2740 NJ 2740 NJ
+preplace netloc EXPORT<net_container>nios_system</net_container>(SLAVE)nios_system.sd_card_conduit_end,(SLAVE)SD_Card.conduit_end) 1 0 5 NJ 2620 NJ 2620 NJ 2620 NJ 2620 NJ
+preplace netloc EXPORT<net_container>nios_system</net_container>(SLAVE)nios_system.audio_external_interface,(SLAVE)audio.external_interface) 1 0 5 NJ 550 NJ 550 NJ 550 NJ 550 NJ
+preplace netloc POINT_TO_POINT<net_container>nios_system</net_container>(MASTER)sys_sdram_pll.sdram_clk,(SLAVE)sdram_clk.in_clk) 1 3 2 N 980 NJ
+preplace netloc FAN_OUT<net_container>nios_system</net_container>(SLAVE)clk_50.clk_in_reset,(MASTER)reset_bridge.out_reset,(SLAVE)clk_50_3.clk_in_reset,(SLAVE)clk_50_2.clk_in_reset) 1 1 2 390 1020 590
+preplace netloc EXPORT<net_container>nios_system</net_container>(SLAVE)nios_system.reset_bridge_in_reset,(SLAVE)reset_bridge.in_reset) 1 0 1 NJ
+preplace netloc EXPORT<net_container>nios_system</net_container>(SLAVE)nios_system.mtl_controller_external_interface,(SLAVE)mtl_controller.external_interface) 1 0 10 NJ 90 NJ 90 NJ 90 NJ 170 NJ 100 NJ 110 NJ 110 NJ 90 NJ 90 NJ
+preplace netloc EXPORT<net_container>nios_system</net_container>(SLAVE)nios_system.clk_50_in,(SLAVE)clk_50.clk_in) 1 0 2 NJ 960 NJ
+preplace netloc FAN_OUT<net_container>nios_system</net_container>(SLAVE)mtl_dual_clock_buffer.clock_stream_out,(SLAVE)mtl_controller.clk,(SLAVE)mtl_clk.in_clk,(MASTER)video_pll.lcd_clk) 1 4 6 1300 80 NJ 70 NJ 70 NJ 50 2870 270 3240
+preplace netloc EXPORT<net_container>nios_system</net_container>(MASTER)sdram_clk.out_clk,(MASTER)nios_system.sdram_clk_out) 1 5 6 NJ 1080 NJ 1080 NJ 1080 NJ 1080 NJ 1080 NJ
+preplace netloc POINT_TO_POINT<net_container>nios_system</net_container>(MASTER)clk_50_3.clk_reset,(SLAVE)audio_pll.ref_reset) 1 3 1 N
+preplace netloc POINT_TO_POINT<net_container>nios_system</net_container>(SLAVE)audio_clk.in_clk,(MASTER)audio_pll.audio_clk) 1 4 1 N
+levelinfo -pg 1 0 200 3550
+levelinfo -hier nios_system 210 240 420 670 1040 1510 2020 2260 2540 2920 3290 3440

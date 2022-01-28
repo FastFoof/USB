@@ -1,0 +1,25 @@
+10:23:31 **** Incremental Build of configuration Nios II for project USB_functioning ****
+make all 
+Info: Building ../USB_functioning_bsp/
+C:/intelFPGA/17.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../USB_functioning_bsp/
+[BSP build complete]
+Info: Compiling main.c to obj/default/main.o
+nios2-elf-gcc -xc -MP -MMD -c -I../USB_functioning_bsp//HAL/inc -I../USB_functioning_bsp/ -I../USB_functioning_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx -mgpopt=global  -o obj/default/main.o main.c
+main.c: In function 'main':
+main.c:80:18: warning: unused variable 'command_register' [-Wunused-variable]
+       short int *command_register = ((short int *)(SD_CARD_BASE + 0x00000230));
+                  ^
+main.c:79:12: warning: unused variable 'command_argument_register' [-Wunused-variable]
+       int *command_argument_register = ((int *)(SD_CARD_BASE + 0x0000022C));
+            ^
+Info: Linking USB_functioning.elf
+nios2-elf-g++  -T'../USB_functioning_bsp//linker.x' -msys-crt0='../USB_functioning_bsp//obj/HAL/src/crt0.o' -msys-lib=hal_bsp -L../USB_functioning_bsp/   -Wl,-Map=USB_functioning.map   -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx -mgpopt=global  -o USB_functioning.elf obj/default/cy7c67200_device/usb_device.o obj/default/cy7c67200_device/usb_device_control.o obj/default/cy7c67200_device/usb_hal.o obj/default/main.o -lm -msys-lib=m
+nios2-elf-insert USB_functioning.elf --thread_model hal --cpu_name cpu --qsys true --simulation_enabled false --id 0 --sidp 0x11211d00 --timestamp 1642691595 --stderr_dev jtag_uart --stdin_dev jtag_uart --stdout_dev jtag_uart --sopc_system_name nios_system --quartus_project_dir "C:/Users/pabmars2/Desktop/USB" --jdi ../..//output_files/mi_primer_niosii.jdi --sopcinfo C:/Users/pabmars2/Desktop/USB/software/USB_functioning_bsp/../../nios_system.sopcinfo
+Info: (USB_functioning.elf) 91 KBytes program size (code + initialized data).
+Info:                       130972 KBytes free for stack + heap.
+Info: Creating USB_functioning.objdump
+nios2-elf-objdump --disassemble --syms --all-header --source USB_functioning.elf >USB_functioning.objdump
+[USB_functioning build complete]
+
+10:23:34 Build Finished (took 2s.426ms)
+

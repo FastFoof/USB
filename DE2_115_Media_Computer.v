@@ -26,7 +26,7 @@ module DE2_115_Media_Computer (
 	// SD Card
 	 SD_WP_N,
 	 
-	//USB
+	 //USB
 	OTG_INT,
 
 /*****************************************************************************/
@@ -171,7 +171,6 @@ input				TD_CLK27;
 input		[ 3: 0]	KEY;
 input		[17: 0]	SW;
 
-
 //  Comunicacion
 input				UART_RXD;
 
@@ -189,7 +188,6 @@ input 			SD_WP_N;
 
 // USB
 input						OTG_INT;
-
 
 /*****************************************************************************/
 // Bidireccionales
@@ -386,18 +384,59 @@ assign 	GPIO[35]		= 1'bZ;
 /*****************************************************************************
  *                              Modulos Internos                             *
  *****************************************************************************/
+ 
 
-	 
-	 
-    niosii_USB u0 (
-		  .altera_up_sd_card_avalon_interface_0_conduit_end_b_SD_cmd   (SD_CMD),   // altera_up_sd_card_avalon_interface_0_conduit_end.b_SD_cmd
-        .altera_up_sd_card_avalon_interface_0_conduit_end_b_SD_dat   (SD_DAT[0]),   //                                                 .b_SD_dat
-        .altera_up_sd_card_avalon_interface_0_conduit_end_b_SD_dat3  (SD_DAT[3]),  //                                                 .b_SD_dat3
-        .altera_up_sd_card_avalon_interface_0_conduit_end_o_SD_clock (SD_CLK), //                                                 .o_SD_clock
+    nios_system u0 (
+        .audio_clk_out_clk                         (AUD_XCK),                         //                     audio_clk_out.clk
+        .audio_config_external_interface_SDAT      (I2C_SDAT),      //   audio_config_external_interface.SDAT
+        .audio_config_external_interface_SCLK      (I2C_SCLK),      //                                  .SCLK
+        .audio_external_interface_ADCDAT           (AUD_ADCDAT),           //          audio_external_interface.ADCDAT
+        .audio_external_interface_ADCLRCK          (AUD_ADCLRCK),          //		  .ADCLRCK  
+		  .audio_external_interface_BCLK             (AUD_BCLK),             //                                  .BCLK
+        .audio_external_interface_DACDAT           (AUD_DACDAT),           //                                  .DACDAT
+        .audio_external_interface_DACLRCK          (AUD_DACLRCK),          //                                  .DACLRCK
+        .char_lcd_external_interface_DATA          (LCD_DATA),          //       char_lcd_external_interface.DATA
+        .char_lcd_external_interface_ON            (LCD_ON),            //                                  .ON
+        .char_lcd_external_interface_BLON          (LCD_BLON),          //                                  .BLON
+        .char_lcd_external_interface_EN            (LCD_EN),            //                                  .EN
+        .char_lcd_external_interface_RS            (LCD_RS),            //                                  .RS
+        .char_lcd_external_interface_RW            (LCD_RW),            //                                  .RW
         .clk_50_2_in_clk                           (CLOCK2_50),                           //                       clk_50_2_in.clk
         .clk_50_3_in_clk                           (CLOCK3_50),                           //                       clk_50_3_in.clk
         .clk_50_in_clk                             (CLOCK_50),                             //                         clk_50_in.clk
-		  .reset_bridge_in_reset_reset_n             (KEY[0]),             //             reset_bridge_in_reset.reset_n
+        .flash_bridge_out_tcm_address_out          (FL_ADDR),          //                  flash_bridge_out.tcm_address_out
+        .flash_bridge_out_tcm_read_n_out           (FL_OE_N),           //                                  .tcm_read_n_out
+        .flash_bridge_out_tcm_write_n_out          (FL_WE_N),          //                                  .tcm_write_n_out
+        .flash_bridge_out_tcm_data_out             (FL_DQ),             //                                  .tcm_data_out
+        .flash_bridge_out_tcm_chipselect_n_out     (FL_CE_N),     //                                  .tcm_chipselect_n_out
+        .green_leds_external_interface_export      (LEDG),      //     green_leds_external_interface.export
+        .hex3_hex0_external_interface_HEX0         (HEX0),         //      hex3_hex0_external_interface.HEX0
+        .hex3_hex0_external_interface_HEX1         (HEX1),         //                                  .HEX1
+        .hex3_hex0_external_interface_HEX2         (HEX2),         //                                  .HEX2
+        .hex3_hex0_external_interface_HEX3         (HEX3),         //                                  .HEX3
+        .hex7_hex4_external_interface_HEX4         (HEX4),         //      hex7_hex4_external_interface.HEX4
+        .hex7_hex4_external_interface_HEX5         (HEX5),         //                                  .HEX5
+        .hex7_hex4_external_interface_HEX6         (HEX6),         //                                  .HEX6
+        .hex7_hex4_external_interface_HEX7         (HEX7),         //                                  .HEX7
+        .mtl_clk_out_clk                           (),                           //                       mtl_clk_out.clk
+        .mtl_controller_external_interface_CLK     (MTL_CLK),     // mtl_controller_external_interface.CLK
+        .mtl_controller_external_interface_HS      (MTL_HS),      //                                  .HS
+        .mtl_controller_external_interface_VS      (MTL_VS),      //                                  .VS
+        .mtl_controller_external_interface_DATA_EN (), //                                  .DATA_EN
+        .mtl_controller_external_interface_R       (MTL_R),       //                                  .R
+        .mtl_controller_external_interface_G       (MTL_G),       //                                  .G
+        .mtl_controller_external_interface_B       (MTL_B),       //                                  .B
+        .ps2_key_external_interface_CLK            (PS2_KBCLK),            //        ps2_key_external_interface.CLK
+        .ps2_key_external_interface_DAT            (PS2_KBDAT),            //                                  .DAT
+        .ps2_mouse_external_interface_CLK          (PS2_MSCLK),          //      ps2_mouse_external_interface.CLK
+        .ps2_mouse_external_interface_DAT          (PS2_MSDAT),          //                                  .DAT
+        .pushbuttons_external_interface_export     ({KEY[3:1], 1'b1}),     //    pushbuttons_external_interface.export
+        .red_leds_external_interface_export        (LEDR),        //       red_leds_external_interface.export
+        .reset_bridge_in_reset_reset_n             (KEY[0]),             //             reset_bridge_in_reset.reset_n
+        .sd_card_conduit_end_b_SD_cmd              (SD_CMD),              //               sd_card_conduit_end.b_SD_cmd
+        .sd_card_conduit_end_b_SD_dat              (SD_DAT[0]),              //                                  .b_SD_dat
+        .sd_card_conduit_end_b_SD_dat3             (SD_DAT[3]),             //                                  .b_SD_dat3
+        .sd_card_conduit_end_o_SD_clock            (SD_CLK),            //                                  .o_SD_clock
         .sdram_clk_out_clk                         (DRAM_CLK),                         //                     sdram_clk_out.clk
         .sdram_wire_addr                           (DRAM_ADDR),                           //                        sdram_wire.addr
         .sdram_wire_ba                             (DRAM_BA),                             //                                  .ba
@@ -408,17 +447,26 @@ assign 	GPIO[35]		= 1'bZ;
         .sdram_wire_dqm                            (DRAM_DQM),                            //                                  .dqm
         .sdram_wire_ras_n                          (DRAM_RAS_N),                          //                                  .ras_n
         .sdram_wire_we_n                           (DRAM_WE_N),                           //                                  .we_n
-		  .sys_clk_out_clk                           (),                           //                       sys_clk_out.clk
+        .serial_port_external_interface_RXD        (UART_RXD),        //    serial_port_external_interface.RXD
+        .serial_port_external_interface_TXD        (UART_TXD),        //                                  .TXD
+        .sram_external_interface_DQ                (SRAM_DQ),                //           sram_external_interface.DQ
+        .sram_external_interface_ADDR              (SRAM_ADDR),              //                                  .ADDR
+        .sram_external_interface_LB_N              (SRAM_LB_N),              //                                  .LB_N
+        .sram_external_interface_UB_N              (SRAM_UB_N),              //                                  .UB_N
+        .sram_external_interface_CE_N              (SRAM_CE_N),              //                                  .CE_N
+        .sram_external_interface_OE_N              (SRAM_OE_N),              //                                  .OE_N
+        .sram_external_interface_WE_N              (SRAM_WE_N),              //                                  .WE_N
+        .switches_external_interface_export        (SW),        //       switches_external_interface.export
+        .sys_clk_out_clk                           (),                           //                       sys_clk_out.clk
+        .vga_clk_out_clk                           (),                            //                       vga_clk_out.clk
 		  .cy7c67200_if_0_conduit_end_DATA                             (OTG_DATA),                             //                       cy7c67200_if_0_conduit_end.DATA
         .cy7c67200_if_0_conduit_end_ADDR                             (OTG_ADDR),                             //                                                 .ADDR
         .cy7c67200_if_0_conduit_end_RD_N                             (OTG_RD_N),                             //                                                 .RD_N
         .cy7c67200_if_0_conduit_end_WR_N                             (OTG_WR_N),                             //                                                 .WR_N
         .cy7c67200_if_0_conduit_end_CS_N                             (OTG_CS_N),                             //                                                 .CS_N
         .cy7c67200_if_0_conduit_end_RST_N                            (OTG_RST_N),                            //                                                 .RST_N
-        .cy7c67200_if_0_conduit_end_INT                              (OTG_INT)                             //                                                 .INT
-       
-		 );
-
+        .cy7c67200_if_0_conduit_end_INT                              (OTG_INT)   
+    );
 
 
 endmodule

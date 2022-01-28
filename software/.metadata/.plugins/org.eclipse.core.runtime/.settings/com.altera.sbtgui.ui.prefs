@@ -1,4 +1,4 @@
 eclipse.preferences.version=1
-newSoftwareExampleWizardPage.defaultLocation=C\:\\Users\\Pablo\\Documents\\GitHub\\USB\\software\\USB_function
-newSoftwareExampleWizardPage.sopcinfoFile=C\:\\Users\\Pablo\\Documents\\GitHub\\USB\\niosii_USB.sopcinfo
-newSoftwareExampleWizardPage2.newBspLocation=C\:\\Users\\Pablo\\Documents\\GitHub\\USB\\software\\USB_function_bsp
+newSoftwareExampleWizardPage.defaultLocation=C\:\\Users\\pabmars2\\Desktop\\USB\\software\\USB_functioning
+newSoftwareExampleWizardPage.sopcinfoFile=C\:\\Users\\pabmars2\\Desktop\\USB\\nios_system.sopcinfo
+newSoftwareExampleWizardPage2.newBspLocation=C\:\\Users\\pabmars2\\Desktop\\USB\\software\\USB_functioning_bsp

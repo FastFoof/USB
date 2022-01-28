@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Move &apos;USB_function.map, USB_function.objdump&apos; to &apos;USB_functioning&apos;" description="Move 2 resources to &apos;USB_functioning&apos;" destination="/USB_functioning" element1="/USB_function/USB_function.map" element2="/USB_function/USB_function.objdump" flags="7" id="org.eclipse.ltk.core.refactoring.move.resources" resources="2" stamp="1642692213129" updateReferences="true"/>
+</session>

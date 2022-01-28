@@ -1,0 +1,15 @@
+module mi_primer_niosii(CLOCK_50, LEDG);
+
+input CLOCK_50;
+output LEDG [7:0];
+
+wire RST_N;
+assign RST_N = 1'b1;
+
+nios_system u0 (
+    .clk_50_clk(CLOCK_50),                           //                        clk_50.clk
+    .reset_reset_n(RST_N),                        //                         reset.reset_n
+    .led_green_external_connection_export (LEDG)  // led_green_external_connection.export
+);
+
+endmodule 

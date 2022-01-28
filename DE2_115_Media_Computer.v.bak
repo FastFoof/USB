@@ -2,7 +2,7 @@
 // Ricardo Jose Colom Palero
 // Version 17.1, 30 de julio de 2018
 
-module DE2_115_Media_Computer_tec3 (
+module DE2_115_Media_Computer (
 	// Entradas
 	CLOCK_50,
 	CLOCK2_50,
@@ -358,27 +358,12 @@ assign 	GPIO[35]		= 1'bZ;
 /*****************************************************************************
  *                              Modulos Internos                             *
  *****************************************************************************/
-
-	 
-	 
-    nios_system_tec3 u0 (
-        .clk_50_2_in_clk                           (CLOCK2_50),                           //                       clk_50_2_in.clk
-        .clk_50_3_in_clk                           (CLOCK3_50),                           //                       clk_50_3_in.clk
-        .clk_50_in_clk                             (CLOCK_50),                             //                         clk_50_in.clk
-		  .reset_bridge_in_reset_reset_n             (KEY[0]),             //             reset_bridge_in_reset.reset_n
-        .sdram_clk_out_clk                         (DRAM_CLK),                         //                     sdram_clk_out.clk
-        .sdram_wire_addr                           (DRAM_ADDR),                           //                        sdram_wire.addr
-        .sdram_wire_ba                             (DRAM_BA),                             //                                  .ba
-        .sdram_wire_cas_n                          (DRAM_CAS_N),                          //                                  .cas_n
-        .sdram_wire_cke                            (DRAM_CKE),                            //                                  .cke
-        .sdram_wire_cs_n                           (DRAM_CS_N),                           //                                  .cs_n
-        .sdram_wire_dq                             (DRAM_DQ),                             //                                  .dq
-        .sdram_wire_dqm                            (DRAM_DQM),                            //                                  .dqm
-        .sdram_wire_ras_n                          (DRAM_RAS_N),                          //                                  .ras_n
-        .sdram_wire_we_n                           (DRAM_WE_N),                           //                                  .we_n
-		  .sys_clk_out_clk                           (),                           //                       sys_clk_out.clk
+ 
+    nios_system u0 (
+        .clk_50_in_clk                         (CLOCK_50),           //                       clk_50_in.clk
+        
+		//Completar puertos de entrada salida al sistema de Nios II	
+			  
     );
-
-
 
 endmodule

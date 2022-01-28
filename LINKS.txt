@@ -1,0 +1,5 @@
+http://www.ece.ualberta.ca/~elliott/ee552/studentAppNotes/2003_w/misc/bmp_file_format/bmp_file_format.htm#:~:text=The%20MS-Windows%20standard%20format%20is%20BMP%20and%20was,%20used%20by%20a%20display%20to%20represent%20color.
+
+file:///C:/intelfpga/17.1/ip/altera/university_program/memory/altera_up_sd_card_avalon_interface/doc/SD_Card_Interface_for_SoPC_Builder.pdf
+
+https://stackoverflow.com/questions/10531884/write-a-jpg-image-file-in-c
