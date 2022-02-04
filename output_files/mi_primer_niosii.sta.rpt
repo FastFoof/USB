@@ -1,5 +1,5 @@
 TimeQuest Timing Analyzer report for mi_primer_niosii
-Fri Jan 28 09:19:56 2022
+Fri Feb 04 13:02:06 2022
 Quartus Prime Version 17.1.1 Internal Build 593 12/11/2017 SJ Standard Edition
 
 
@@ -107,14 +107,13 @@ refer to the applicable agreement for further details.
 ; Number detected on machine ; 8           ;
 ; Maximum allowed            ; 4           ;
 ;                            ;             ;
-; Average used               ; 1.25        ;
+; Average used               ; 1.26        ;
 ; Maximum used               ; 4           ;
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
-;     Processor 2            ;   8.7%      ;
-;     Processor 3            ;   8.2%      ;
-;     Processor 4            ;   8.2%      ;
+;     Processor 2            ;   9.0%      ;
+;     Processors 3-4         ;   8.6%      ;
 +----------------------------+-------------+
 
 
@@ -123,8 +122,8 @@ refer to the applicable agreement for further details.
 +--------------------------------------------------------------+--------+--------------------------+
 ; SDC File Path                                                ; Status ; Read at                  ;
 +--------------------------------------------------------------+--------+--------------------------+
-; nios_system/synthesis/submodules/altera_reset_controller.sdc ; OK     ; Fri Jan 28 09:19:52 2022 ;
-; nios_system/synthesis/submodules/nios_system_cpu_cpu.sdc     ; OK     ; Fri Jan 28 09:19:52 2022 ;
+; nios_system/synthesis/submodules/altera_reset_controller.sdc ; OK     ; Fri Feb 04 13:02:03 2022 ;
+; nios_system/synthesis/submodules/nios_system_cpu_cpu.sdc     ; OK     ; Fri Feb 04 13:02:03 2022 ;
 +--------------------------------------------------------------+--------+--------------------------+
 
 
@@ -3987,11 +3986,11 @@ No non-DPA dedicated SERDES Receiver circuitry present in device or used in desi
 Info: *******************************************************************
 Info: Running Quartus Prime TimeQuest Timing Analyzer
     Info: Version 17.1.1 Internal Build 593 12/11/2017 SJ Standard Edition
-    Info: Processing started: Fri Jan 28 09:19:48 2022
+    Info: Processing started: Fri Feb 04 13:01:58 2022
 Info: Command: quartus_sta mi_primer_niosii -c mi_primer_niosii
 Info: qsta_default_script.tcl version: #3
-Warning (136023): Incompatible bus dimensions on node name "OTG_INT[0]", expecting <= 0 dimension(s)  File: C:/Users/pabmars2/Desktop/USB/DE2_115_Media_Computer.v Line: 190
-Warning (136023): Incompatible bus dimensions on node name "OTG_INT[1]", expecting <= 0 dimension(s)  File: C:/Users/pabmars2/Desktop/USB/DE2_115_Media_Computer.v Line: 190
+Warning (136023): Incompatible bus dimensions on node name "OTG_INT[0]", expecting <= 0 dimension(s)  File: C:/Users/pabmars2/Desktop/USB_GIT/USB/DE2_115_Media_Computer.v Line: 190
+Warning (136023): Incompatible bus dimensions on node name "OTG_INT[1]", expecting <= 0 dimension(s)  File: C:/Users/pabmars2/Desktop/USB_GIT/USB/DE2_115_Media_Computer.v Line: 190
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
 Info (21077): Low junction temperature is 0 degrees C
@@ -4178,8 +4177,8 @@ Info (332114): Report Metastability: Found 3 synchronizer chains.
 Info (332102): Design is not fully constrained for setup requirements
 Info (332102): Design is not fully constrained for hold requirements
 Info: Quartus Prime TimeQuest Timing Analyzer was successful. 0 errors, 40 warnings
-    Info: Peak virtual memory: 4976 megabytes
-    Info: Processing ended: Fri Jan 28 09:19:56 2022
+    Info: Peak virtual memory: 4977 megabytes
+    Info: Processing ended: Fri Feb 04 13:02:06 2022
     Info: Elapsed time: 00:00:08
     Info: Total CPU time (on all processors): 00:00:09
 

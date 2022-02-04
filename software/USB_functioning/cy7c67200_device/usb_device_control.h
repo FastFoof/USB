@@ -39,7 +39,8 @@ typedef enum{
     IMAGEN1 = 0x01,
 	IMAGEN2 = 0x02,
 	IMAGEN3 = 0x03,
-	IMAGEN4 = 0x04
+	IMAGEN4 = 0x04,
+	COMPROBIMG = 0xFF
 }IN_TRANSFER_TPYE;
 
 

@@ -57,6 +57,8 @@ extern DEVICE_STATUS device_status;
     #define DEBUG_ERR(format, arg...)
 #endif   
 
+char dispImg = 0x00;
+
 /** internal functions **/
 static void ep2_isr(void);
 
@@ -181,6 +183,7 @@ void sie2_msg_handler(unsigned short message)
            if(message & SUSB_EP1_MSG)
             {
               DEBUG_OUT("[sie2 msg]: ep1 msg: data had been received by host\n");
+              //usb_send_data(1,EP1_SEND_BUF_ADDRESS,(char *)dispImg,sizeof(dispImg));
               device_status.bEP1InTransfer = FALSE ;
             }
            if(message & SUSB_EP2_MSG)
@@ -250,26 +253,44 @@ void sie2_msg_handler(unsigned short message)
     switch( Rx_type )    {
         
         case IMAGEN1:
-         {   DEBUG_OUT(" Caso: Imagen 1\n");
-         	 short SiAbierto;
-         	 SiAbierto = alt_up_sd_card_fopen("imagen1.bmp", 1);
+         {   ///////////////////////////////
+        	 /////////DECLARACIONES/////////
+        	 ///////////////////////////////
 
-         	 if(SiAbierto == 1){
+        	 int respuesta;
+        	 short SiAbierto;
+        	 unsigned char *peticion;
 
-         		 alt_u32 Rx_length;
+        	 peticion = (unsigned char*)(malloc(1)) ;
+
+         	 DEBUG_OUT(" Caso: Imagen 1\n");
+         	 SiAbierto = alt_up_sd_card_fopen("imagen1.bmp", 0);
+
+         	 if(SiAbierto == -1){
 
          		 DEBUG_OUT(" La imagen 1 no se encuentra en SD!\n");
-         		 DEBUG_OUT(" Escribiendo la imagen en la SD!\n");
+         		 DEBUG_OUT(" Enviado petición de escritura de la imagen...\n");
 
-				 char vector [Rx_length];
+         		 *(peticion+0) = 0x11;
+         		 //*(peticion+1) = 0x00;
+         		 respuesta = usb_send_data(1,EP1_SEND_BUF_ADDRESS,(char *)peticion,sizeof(peticion));
+         		 if(respuesta == SUCCESS){ DEBUG_OUT("send success!\n");}
 
-				 hpi_read_memory(EP2_RECEIVE_BUF_ADDRESS+2,(char *)&vector,Rx_length);
+                 device_status.EP1_Transfer_Timeout  = alt_nticks() + alt_ticks_per_second()*1; // 2s TimeOut if host do not responds
+                 device_status.bEP1_Transfer_Judge   = TRUE;
 
+                 if(alt_nticks()>device_status.EP1_Transfer_Timeout &&  device_status.bEP1_Transfer_Judge == TRUE && device_status.bEP1InTransfer == TRUE){
+                	   device_status.bEP1InTransfer = FALSE;
+                	   device_status.bEP1_Transfer_Judge = FALSE;
+                       DEBUG_OUT("Host PC not responds ,TimeOut!!\n");
+                 }
 
-
-				 DEBUG_OUT(" La imagen ya se ha escrito en la SD!\n");
          	 }else{
-         		 DEBUG_OUT(" La imagen 1 ya se encuentra en SD!\n");
+         		 if(SiAbierto == -2){
+         			DEBUG_OUT(" Error al abrir la imagen, esta ya se encuentra abierta!\n");
+         		 }else{
+         			 DEBUG_OUT(" La imagen 1 ya se encuentra en SD!\n");
+         		 }
          	 }
 
           
@@ -279,7 +300,7 @@ void sie2_msg_handler(unsigned short message)
          
           case IMAGEN2:
          { 
-            DEBUG_OUT(" Recevie lcd packet!\n");/*
+            DEBUG_OUT(" Hola!\n");/*
             LCD_PACKET lcd_packet;
           
           hpi_read_memory(EP2_RECEIVE_BUF_ADDRESS+2,(char *)&lcd_packet,sizeof(LCD_PACKET));
@@ -296,7 +317,7 @@ void sie2_msg_handler(unsigned short message)
           
           case IMAGEN3:
               {
-                 DEBUG_OUT(" Recevie seg7_8 packet!\n");/*
+                 DEBUG_OUT(" Hola!\n");/*
                  SEG7_8_PACKET seg7_8_packet;
                  
                  hpi_read_memory(EP2_RECEIVE_BUF_ADDRESS+2,(char *)&seg7_8_packet,sizeof(SEG7_8_PACKET));
@@ -318,6 +339,61 @@ void sie2_msg_handler(unsigned short message)
                            //IOWR(SEG7_DISPLAY_BASE,0,seg7_8_packet.seg7_8_value&0xFFFFFFFF);*/
 
                           break;
+                        }
+
+          	case COMPROBIMG:
+                        {
+                           short int SiAbierto;
+
+                           DEBUG_OUT(" Comprobando las imagenes...\n");
+
+                           DEBUG_OUT(" Comprobando la imagen 1\n");
+                           SiAbierto = alt_up_sd_card_fopen("pantalla1.bmp", 0);
+
+                           if(SiAbierto == -1){
+                        	   DEBUG_OUT(" La imagen 1 no se encuentra en SD!\n");
+                        	   dispImg = dispImg && 0x0E;
+                           }else{
+                        	   DEBUG_OUT(" La imagen 1 se ha abierto!\n");
+                        	   alt_up_sd_card_fclose(SiAbierto);
+                           }
+
+                           DEBUG_OUT(" Comprobando la imagen 2\n");
+                           SiAbierto = alt_up_sd_card_fopen("pantalla2.bmp", 0);
+
+                           if(SiAbierto == -1){
+                               DEBUG_OUT(" La imagen 2 no se encuentra en SD!\n");
+                               dispImg = dispImg && 0x0D;
+                           }else{
+                        	   DEBUG_OUT(" La imagen 2 se ha abierto!\n");
+                        	   alt_up_sd_card_fclose(SiAbierto);
+                           }
+
+                           DEBUG_OUT(" Comprobando la imagen 3\n");
+                           SiAbierto = alt_up_sd_card_fopen("pantalla3.bmp", 0);
+
+                           if(SiAbierto == -1){
+                               DEBUG_OUT(" La imagen 3 no se encuentra en SD!\n");
+                               dispImg = dispImg && 0x0B;
+                           }else{
+                        	   DEBUG_OUT(" La imagen 3 se ha abierto!\n");
+                        	   alt_up_sd_card_fclose(SiAbierto);
+                           }
+
+                           DEBUG_OUT(" Comprobando la imagen 4\n");
+                           SiAbierto = alt_up_sd_card_fopen("pantalla4.bmp", 0);
+
+                           if(SiAbierto == -1){
+                               DEBUG_OUT(" La imagen 4 no se encuentra en SD!\n");
+                               dispImg = dispImg && 0x07;
+                           }else{
+                        	   DEBUG_OUT(" La imagen 4 se ha abierto!\n");
+                        	   alt_up_sd_card_fclose(SiAbierto);
+                           }
+
+                           DEBUG_OUT(" Finalizada la comprobación de imágenes, enviando confirmación!\n");
+
+                           break;
                         }
           
          default :
