@@ -260,7 +260,7 @@ void sie2_msg_handler(unsigned short message)
          	 if(SiAbierto == -1){
 
          		 DEBUG_OUT(" La imagen 0 no se encuentra en SD!\n");
-         		 DEBUG_OUT(" Enviado petición de escritura de la imagen...\n");
+         		 DEBUG_OUT(" Enviado peticiï¿½n de escritura de la imagen...\n");
 
          		 peticion = 0x10;
 
@@ -280,7 +280,7 @@ void sie2_msg_handler(unsigned short message)
          			DEBUG_OUT(" Error al abrir la imagen, esta ya se encuentra abierta!\n");
          		 }else{
          			 DEBUG_OUT(" La imagen 0 ya se encuentra en SD!\n");
-         			 DEBUG_OUT(" Enviado confirmación de imagen...\n");
+         			 DEBUG_OUT(" Enviado confirmaciï¿½n de imagen...\n");
 
          			 peticion = 0x00;
 
@@ -308,7 +308,7 @@ void sie2_msg_handler(unsigned short message)
           	 if(SiAbierto == -1){
 
           		 DEBUG_OUT(" La imagen 1 no se encuentra en SD!\n");
-          		 DEBUG_OUT(" Enviado petición de escritura de la imagen...\n");
+          		 DEBUG_OUT(" Enviado peticiï¿½n de escritura de la imagen...\n");
 
           		 peticion = 0x10;
 
@@ -328,7 +328,7 @@ void sie2_msg_handler(unsigned short message)
           			DEBUG_OUT(" Error al abrir la imagen, esta ya se encuentra abierta!\n");
           		 }else{
           			 DEBUG_OUT(" La imagen 1 ya se encuentra en SD!\n");
-          			 DEBUG_OUT(" Enviado petición de confirmación de imagen...\n");
+          			 DEBUG_OUT(" Enviado peticiï¿½n de confirmaciï¿½n de imagen...\n");
 
           			 peticion = 0x00;
 
@@ -356,7 +356,7 @@ void sie2_msg_handler(unsigned short message)
           	 if(SiAbierto == -1){
 
           		 DEBUG_OUT(" La imagen 2 no se encuentra en SD!\n");
-          		 DEBUG_OUT(" Enviado petición de escritura de la imagen...\n");
+          		 DEBUG_OUT(" Enviado peticiï¿½n de escritura de la imagen...\n");
 
           		 peticion = 0x10;
 
@@ -376,7 +376,7 @@ void sie2_msg_handler(unsigned short message)
           			DEBUG_OUT(" Error al abrir la imagen, esta ya se encuentra abierta!\n");
           		 }else{
           			 DEBUG_OUT(" La imagen 2 ya se encuentra en SD!\n");
-          			 DEBUG_OUT(" Enviado petición de confirmación de imagen...\n");
+          			 DEBUG_OUT(" Enviado peticiï¿½n de confirmaciï¿½n de imagen...\n");
 
           			 peticion = 0x00;
 
@@ -403,7 +403,7 @@ void sie2_msg_handler(unsigned short message)
           	 if(SiAbierto == -1){
 
           		 DEBUG_OUT(" La imagen 3 no se encuentra en SD!\n");
-          		 DEBUG_OUT(" Enviado petición de escritura de la imagen...\n");
+          		 DEBUG_OUT(" Enviado peticiï¿½n de escritura de la imagen...\n");
 
           		 peticion = 0x10;
 
@@ -423,7 +423,7 @@ void sie2_msg_handler(unsigned short message)
           			DEBUG_OUT(" Error al abrir la imagen, esta ya se encuentra abierta!\n");
           		 }else{
           			 DEBUG_OUT(" La imagen 3 ya se encuentra en SD!\n");
-          			 DEBUG_OUT(" Enviado petición de confirmación de imagen...\n");
+          			 DEBUG_OUT(" Enviado peticiï¿½n de confirmaciï¿½n de imagen...\n");
 
           			 peticion = 0x00;
 
@@ -480,45 +480,3 @@ void sie2_msg_handler(unsigned short message)
       }
  
  }
-
-
- /*
-void check_button_sw_status(void)
-{
-    OUT_PACKET button_sw_status;
-
-   button_sw_status.button = IORD(BUTTON_PIO_BASE,0)&BUTTON_FLAG;
-   button_sw_status.sw  =  IORD(SWITCH_PIO_BASE,0)&SW_FLAG;
-   
-   if( (old_button_sw_status.button != button_sw_status.button)
-		   || (old_button_sw_status.sw != button_sw_status.sw)
-		   )
-   {
-
-
-	   if(device_status.bEP1InTransfer == FALSE) {
-
-    	old_button_sw_status.button = button_sw_status.button;
-        old_button_sw_status.sw = button_sw_status.sw ;
-        usb_send_data(1,EP1_SEND_BUF_ADDRESS,(char *)&button_sw_status,sizeof(OUT_PACKET)); // send switch and button status to pc
-
-        device_status.EP1_Transfer_Timeout  = alt_nticks() + alt_ticks_per_second()*1; // 2s TimeOut if host do not responds
-        device_status.bEP1_Transfer_Judge   = TRUE;
-
-        DEBUG_OUT(" Switch or Button Status changed !!\n           [SW] 0x%05X,   [Button] 0x%02X\n",(unsigned int)(old_button_sw_status.sw&SW_FLAG),old_button_sw_status.button&BUTTON_FLAG);
-        usleep(50000);
-
-	   }
- }
-
-
-   if(alt_nticks()>device_status.EP1_Transfer_Timeout &&  device_status.bEP1_Transfer_Judge == TRUE && device_status.bEP1InTransfer == TRUE){
-	   device_status.bEP1InTransfer = FALSE;
-	   device_status.bEP1_Transfer_Judge = FALSE;
-       DEBUG_OUT("Host PC not responds ,TimeOut!!\n");
-
-   }
-
- }
-                           
-*/
