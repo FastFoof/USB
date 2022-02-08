@@ -46,6 +46,7 @@
 #include "cy7c67200_device/usb_device.h"
 #include "cy7c67200_device/pcd_asm.h"
 #include "cy7c67200_device/usb_device_control.h"
+//#include <altera_up_sd_card_avalon_interface.h>
 
 #define READ_BLOCK 17
 
@@ -66,6 +67,7 @@
 #endif
 
 extern DEVICE_STATUS device_status;
+//alt_up_sd_card_dev *device_reference = NULL;
 
 int main(void)
 {
@@ -78,6 +80,8 @@ int main(void)
 
       short int *aux_status_register = ((short int *)(SD_CARD_BASE + 0x00000234));
       short int status;
+      //device_reference = alt_up_sd_card_open_dev(SD_CARD_NAME);
+
       /* Wait for the SD Card to be connected to the SD Card Port. */
       DEBUG_OUT("[SD] Comprobando la conexión\n");
       do {

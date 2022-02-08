@@ -1,5 +1,5 @@
 Assembler report for mi_primer_niosii
-Fri Feb 04 13:01:57 2022
+Tue Feb 08 08:43:16 2022
 Quartus Prime Version 17.1.1 Internal Build 593 12/11/2017 SJ Standard Edition
 
 
@@ -11,7 +11,7 @@ Quartus Prime Version 17.1.1 Internal Build 593 12/11/2017 SJ Standard Edition
   3. Assembler Settings
   4. Assembler Encrypted IP Cores Summary
   5. Assembler Generated Files
-  6. Assembler Device Options: C:/Users/pabmars2/Desktop/USB_GIT/USB/output_files/mi_primer_niosii.sof
+  6. Assembler Device Options: C:/Users/pabmars2/Desktop/USB/output_files/mi_primer_niosii.sof
   7. Assembler Messages
 
 
@@ -38,7 +38,7 @@ refer to the applicable agreement for further details.
 +---------------------------------------------------------------+
 ; Assembler Summary                                             ;
 +-----------------------+---------------------------------------+
-; Assembler Status      ; Successful - Fri Feb 04 13:01:57 2022 ;
+; Assembler Status      ; Successful - Tue Feb 08 08:43:16 2022 ;
 ; Revision Name         ; mi_primer_niosii                      ;
 ; Top-level Entity Name ; DE2_115_Media_Computer                ;
 ; Family                ; Cyclone IV E                          ;
@@ -64,23 +64,23 @@ refer to the applicable agreement for further details.
 +--------+-------------------------------+--------------+
 
 
-+-------------------------------------------------------------------------+
-; Assembler Generated Files                                               ;
-+-------------------------------------------------------------------------+
-; File Name                                                               ;
-+-------------------------------------------------------------------------+
-; C:/Users/pabmars2/Desktop/USB_GIT/USB/output_files/mi_primer_niosii.sof ;
-+-------------------------------------------------------------------------+
++-----------------------------------------------------------------+
+; Assembler Generated Files                                       ;
++-----------------------------------------------------------------+
+; File Name                                                       ;
++-----------------------------------------------------------------+
+; C:/Users/pabmars2/Desktop/USB/output_files/mi_primer_niosii.sof ;
++-----------------------------------------------------------------+
 
 
-+---------------------------------------------------------------------------------------------------+
-; Assembler Device Options: C:/Users/pabmars2/Desktop/USB_GIT/USB/output_files/mi_primer_niosii.sof ;
-+----------------+----------------------------------------------------------------------------------+
-; Option         ; Setting                                                                          ;
-+----------------+----------------------------------------------------------------------------------+
-; JTAG usercode  ; 0x00CA19DB                                                                       ;
-; Checksum       ; 0x00CA19DB                                                                       ;
-+----------------+----------------------------------------------------------------------------------+
++-------------------------------------------------------------------------------------------+
+; Assembler Device Options: C:/Users/pabmars2/Desktop/USB/output_files/mi_primer_niosii.sof ;
++----------------+--------------------------------------------------------------------------+
+; Option         ; Setting                                                                  ;
++----------------+--------------------------------------------------------------------------+
+; JTAG usercode  ; 0x00CA19DB                                                               ;
+; Checksum       ; 0x00CA19DB                                                               ;
++----------------+--------------------------------------------------------------------------+
 
 
 +--------------------+
@@ -89,14 +89,14 @@ refer to the applicable agreement for further details.
 Info: *******************************************************************
 Info: Running Quartus Prime Assembler
     Info: Version 17.1.1 Internal Build 593 12/11/2017 SJ Standard Edition
-    Info: Processing started: Fri Feb 04 13:01:52 2022
+    Info: Processing started: Tue Feb 08 08:43:11 2022
 Info: Command: quartus_asm --read_settings_files=off --write_settings_files=off mi_primer_niosii -c mi_primer_niosii
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (115031): Writing out detailed assembly data for power analysis
 Info (115030): Assembler is generating device programming files
 Info: Quartus Prime Assembler was successful. 0 errors, 1 warning
-    Info: Peak virtual memory: 4744 megabytes
-    Info: Processing ended: Fri Feb 04 13:01:57 2022
+    Info: Peak virtual memory: 4746 megabytes
+    Info: Processing ended: Tue Feb 08 08:43:16 2022
     Info: Elapsed time: 00:00:05
     Info: Total CPU time (on all processors): 00:00:05
 
