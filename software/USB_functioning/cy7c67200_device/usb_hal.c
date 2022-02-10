@@ -33,10 +33,10 @@ static void hpi_write_words(unsigned short chip_addr,
                          unsigned short *data,
                          int num_words
                         );
-static void hpi_read_words(unsigned short chip_addr,
+/*static void hpi_read_words(unsigned short chip_addr,
                         unsigned short *data,
                         int num_words
-                        );
+                        );*/
 
 /** public data **/
 

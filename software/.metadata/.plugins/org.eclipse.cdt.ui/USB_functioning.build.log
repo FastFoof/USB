@@ -1,4 +1,4 @@
-10:24:58 **** Incremental Build of configuration Nios II for project USB_functioning ****
+10:24:51 **** Incremental Build of configuration Nios II for project USB_functioning ****
 make all 
 Info: Building ../USB_functioning_bsp/
 C:/intelFPGA/17.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../USB_functioning_bsp/
@@ -6,26 +6,36 @@ C:/intelFPGA/17.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-director
 Info: Compiling cy7c67200_device/usb_device_control.c to obj/default/cy7c67200_device/usb_device_control.o
 nios2-elf-gcc -xc -MP -MMD -c -I../USB_functioning_bsp//HAL/inc -I../USB_functioning_bsp/ -I../USB_functioning_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx -mgpopt=global  -o obj/default/cy7c67200_device/usb_device_control.o cy7c67200_device/usb_device_control.c
 cy7c67200_device/usb_device_control.c: In function 'ep2_isr':
-cy7c67200_device/usb_device_control.c:263:20: warning: assignment makes integer from pointer without a cast [-Wint-conversion]
-           peticion = (unsigned char*)(malloc(1)) ;
-                    ^
-cy7c67200_device/usb_device_control.c:266:24: warning: implicit declaration of function 'alt_up_sd_card_fopen' [-Wimplicit-function-declaration]
-            SiAbierto = alt_up_sd_card_fopen(file_name, 0);
-                        ^
-cy7c67200_device/usb_device_control.c:258:15: warning: variable 'respuesta' set but not used [-Wunused-but-set-variable]
-           int respuesta;
-               ^
-cy7c67200_device/usb_device_control.c:332:32: warning: variable 'respuesta' set but not used [-Wunused-but-set-variable]
-                            int respuesta;
-                                ^
+cy7c67200_device/usb_device_control.c:252:25: warning: implicit declaration of function 'alt_up_sd_card_fopen' [-Wimplicit-function-declaration]
+             SiAbierto = alt_up_sd_card_fopen("p0.bmp", 0);
+                         ^
+cy7c67200_device/usb_device_control.c:443:26: warning: assignment makes integer from pointer without a cast [-Wint-conversion]
+             file_name[1] = "0";
+                          ^
+cy7c67200_device/usb_device_control.c:452:26: warning: assignment makes integer from pointer without a cast [-Wint-conversion]
+             file_name[1] = "1";
+                          ^
+cy7c67200_device/usb_device_control.c:461:26: warning: assignment makes integer from pointer without a cast [-Wint-conversion]
+             file_name[1] = "2";
+                          ^
+cy7c67200_device/usb_device_control.c:470:26: warning: assignment makes integer from pointer without a cast [-Wint-conversion]
+             file_name[1] = "3";
+                          ^
+cy7c67200_device/usb_device_control.c:485:44: warning: pointer targets in passing argument 2 of 'hpi_read_words' differ in signedness [-Wpointer-sign]
+     hpi_read_words(EP2_RECEIVE_BUF_ADDRESS,buf,EP2_DATA_DEFAULT_LEN);
+                                            ^
+In file included from cy7c67200_device/usb_device_control.c:43:0:
+cy7c67200_device/usb_hal.h:24:6: note: expected 'short unsigned int *' but argument is of type 'short int *'
+ void hpi_read_words(unsigned short chip_addr,unsigned short *data,int num_words);
+      ^
 Info: Linking USB_functioning.elf
 nios2-elf-g++  -T'../USB_functioning_bsp//linker.x' -msys-crt0='../USB_functioning_bsp//obj/HAL/src/crt0.o' -msys-lib=hal_bsp -L../USB_functioning_bsp/   -Wl,-Map=USB_functioning.map   -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx -mgpopt=global  -o USB_functioning.elf obj/default/cy7c67200_device/usb_device.o obj/default/cy7c67200_device/usb_device_control.o obj/default/cy7c67200_device/usb_hal.o obj/default/main.o -lm -msys-lib=m
 nios2-elf-insert USB_functioning.elf --thread_model hal --cpu_name cpu --qsys true --simulation_enabled false --id 0 --sidp 0x11211d00 --timestamp 1642691595 --stderr_dev jtag_uart --stdin_dev jtag_uart --stdout_dev jtag_uart --sopc_system_name nios_system --quartus_project_dir "C:/Users/pabmars2/Desktop/USB" --jdi ../..//output_files/mi_primer_niosii.jdi --sopcinfo C:/Users/pabmars2/Desktop/USB/software/USB_functioning_bsp/../../nios_system.sopcinfo
-Info: (USB_functioning.elf) 110 KBytes program size (code + initialized data).
-Info:                       130953 KBytes free for stack + heap.
+Info: (USB_functioning.elf) 300 KBytes program size (code + initialized data).
+Info:                       130763 KBytes free for stack + heap.
 Info: Creating USB_functioning.objdump
 nios2-elf-objdump --disassemble --syms --all-header --source USB_functioning.elf >USB_functioning.objdump
 [USB_functioning build complete]
 
-10:25:00 Build Finished (took 2s.234ms)
+10:24:53 Build Finished (took 2s.277ms)
 
